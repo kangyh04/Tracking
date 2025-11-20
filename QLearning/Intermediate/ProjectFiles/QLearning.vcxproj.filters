@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\QLearning.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{F31BBDD1-B3E8-3BCC-9652-680E16935819}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\QLearning.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\QLearningEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\.vsconfig" />
+    <Filter Include="Config">
+      <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Plugins">
+      <UniqueIdentifier>{BB38096A-B391-30DC-A0D4-4F3EA6B44507}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Plugins\EllersMaze">
+      <UniqueIdentifier>{174115BF-44E6-3859-BC5F-AB7CBD7AD5C8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Plugins\EllersMaze\Source">
+      <UniqueIdentifier>{69B66D29-F5E5-3E04-A7A4-3114D19E0CD9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Plugins\EllersMaze\Source\EllersMaze">
+      <UniqueIdentifier>{18402B42-2E8F-307C-BCB0-A26B345B4E5B}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Plugins\EllersMaze\Source\EllersMaze\EllersMaze.Build.cs">
+      <Filter>Plugins\EllersMaze\Source\EllersMaze</Filter>
+    </None>
+    <Filter Include="Plugins\EllersMaze\Source\EllersMaze\Private">
+      <UniqueIdentifier>{DF2239CB-B8F7-3A79-8FEA-2CFB10625EDE}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Plugins\EllersMaze\Source\EllersMaze\Private\Cell.cpp">
+      <Filter>Plugins\EllersMaze\Source\EllersMaze\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\EllersMaze\Source\EllersMaze\Private\EllersMaze.cpp">
+      <Filter>Plugins\EllersMaze\Source\EllersMaze\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\EllersMaze\Source\EllersMaze\Private\EllersMazeGenerator.cpp">
+      <Filter>Plugins\EllersMaze\Source\EllersMaze\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\EllersMaze\Source\EllersMaze\Private\FUCellArray.cpp">
+      <Filter>Plugins\EllersMaze\Source\EllersMaze\Private</Filter>
+    </ClCompile>
+    <Filter Include="Plugins\EllersMaze\Source\EllersMaze\Public">
+      <UniqueIdentifier>{89130D22-CE8B-3CEE-B5DC-0260FF7D8BE9}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Plugins\EllersMaze\Source\EllersMaze\Public\Cell.h">
+      <Filter>Plugins\EllersMaze\Source\EllersMaze\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Plugins\EllersMaze\Source\EllersMaze\Public\EllersMaze.h">
+      <Filter>Plugins\EllersMaze\Source\EllersMaze\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Plugins\EllersMaze\Source\EllersMaze\Public\EllersMazeGenerator.h">
+      <Filter>Plugins\EllersMaze\Source\EllersMaze\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Plugins\EllersMaze\Source\EllersMaze\Public\FUCellArray.h">
+      <Filter>Plugins\EllersMaze\Source\EllersMaze\Public</Filter>
+    </ClInclude>
+    <None Include="..\..\Plugins\EllersMaze\EllersMaze.uplugin">
+      <Filter>Plugins\EllersMaze</Filter>
+    </None>
+    <Filter Include="Plugins\EllersMaze\Resources">
+      <UniqueIdentifier>{17E19895-E1BD-3C4A-BEC9-7549EBBBC83D}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Plugins\EllersMaze\Resources\Icon128.png">
+      <Filter>Plugins\EllersMaze\Resources</Filter>
+    </None>
+    <Filter Include="Source\QLearning">
+      <UniqueIdentifier>{849D421F-3B3B-3288-8287-F7E5F17F82D0}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\QLearning\QLearning.Build.cs">
+      <Filter>Source\QLearning</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\QLearning\QLearning.cpp">
+      <Filter>Source\QLearning</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\QLearning\QLearning.h">
+      <Filter>Source\QLearning</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
