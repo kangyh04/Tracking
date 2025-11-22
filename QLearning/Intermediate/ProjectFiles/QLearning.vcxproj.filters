@@ -30,9 +30,63 @@
     <Filter Include="Plugins">
       <UniqueIdentifier>{BB38096A-B391-30DC-A0D4-4F3EA6B44507}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Plugins\AStar">
+      <UniqueIdentifier>{E941D132-8836-3C89-9F98-E41C49FAAC91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Plugins\AStar\Source">
+      <UniqueIdentifier>{36E78471-1ADC-3760-8B34-A72CE5AB269D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Plugins\AStar\Source\AStar">
+      <UniqueIdentifier>{88AC3757-99DF-3556-AF18-47661DE179E7}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Plugins\AStar\Source\AStar\AStar.Build.cs">
+      <Filter>Plugins\AStar\Source\AStar</Filter>
+    </None>
+    <Filter Include="Plugins\AStar\Source\AStar\Private">
+      <UniqueIdentifier>{560B5A8D-3417-3AC8-9ACF-C3E5DF6ACDFF}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Plugins\AStar\Source\AStar\Private\AStar.cpp">
+      <Filter>Plugins\AStar\Source\AStar\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\AStar\Source\AStar\Private\AStarAlgorithm.cpp">
+      <Filter>Plugins\AStar\Source\AStar\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\AStar\Source\AStar\Private\AStarNode.cpp">
+      <Filter>Plugins\AStar\Source\AStar\Private</Filter>
+    </ClCompile>
+    <Filter Include="Plugins\AStar\Source\AStar\Public">
+      <UniqueIdentifier>{AD2C93C2-D3CC-3668-A594-C65F04CC17DB}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Plugins\AStar\Source\AStar\Public\AStar.h">
+      <Filter>Plugins\AStar\Source\AStar\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Plugins\AStar\Source\AStar\Public\AStarAlgorithm.h">
+      <Filter>Plugins\AStar\Source\AStar\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Plugins\AStar\Source\AStar\Public\AStarNode.h">
+      <Filter>Plugins\AStar\Source\AStar\Public</Filter>
+    </ClInclude>
+    <None Include="..\..\Plugins\AStar\AStar.uplugin">
+      <Filter>Plugins\AStar</Filter>
+    </None>
+    <Filter Include="Plugins\AStar\Resources">
+      <UniqueIdentifier>{26D30E54-2126-3E3C-A5B8-A037E2D50FF0}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Plugins\AStar\Resources\Icon128.png">
+      <Filter>Plugins\AStar\Resources</Filter>
+    </None>
     <Filter Include="Plugins\EllersMaze">
       <UniqueIdentifier>{174115BF-44E6-3859-BC5F-AB7CBD7AD5C8}</UniqueIdentifier>
     </Filter>
+    <None Include="..\..\Plugins\EllersMaze\EllersMaze.uplugin">
+      <Filter>Plugins\EllersMaze</Filter>
+    </None>
+    <Filter Include="Plugins\EllersMaze\Resources">
+      <UniqueIdentifier>{17E19895-E1BD-3C4A-BEC9-7549EBBBC83D}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Plugins\EllersMaze\Resources\Icon128.png">
+      <Filter>Plugins\EllersMaze\Resources</Filter>
+    </None>
     <Filter Include="Plugins\EllersMaze\Source">
       <UniqueIdentifier>{69B66D29-F5E5-3E04-A7A4-3114D19E0CD9}</UniqueIdentifier>
     </Filter>
@@ -72,15 +126,6 @@
     <ClInclude Include="..\..\Plugins\EllersMaze\Source\EllersMaze\Public\FUCellArray.h">
       <Filter>Plugins\EllersMaze\Source\EllersMaze\Public</Filter>
     </ClInclude>
-    <None Include="..\..\Plugins\EllersMaze\EllersMaze.uplugin">
-      <Filter>Plugins\EllersMaze</Filter>
-    </None>
-    <Filter Include="Plugins\EllersMaze\Resources">
-      <UniqueIdentifier>{17E19895-E1BD-3C4A-BEC9-7549EBBBC83D}</UniqueIdentifier>
-    </Filter>
-    <None Include="..\..\Plugins\EllersMaze\Resources\Icon128.png">
-      <Filter>Plugins\EllersMaze\Resources</Filter>
-    </None>
     <Filter Include="Source\QLearning">
       <UniqueIdentifier>{849D421F-3B3B-3288-8287-F7E5F17F82D0}</UniqueIdentifier>
     </Filter>

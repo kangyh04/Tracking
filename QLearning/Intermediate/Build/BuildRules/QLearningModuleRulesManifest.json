@@ -1,6 +1,7 @@
 {
 	"SourceFiles": [
 		"D:\\Studying\\Tracking\\QLearning\\Source\\QLearning\\QLearning.Build.cs",
+		"D:\\Studying\\Tracking\\QLearning\\Plugins\\AStar\\Source\\AStar\\AStar.Build.cs",
 		"D:\\Studying\\Tracking\\QLearning\\Plugins\\EllersMaze\\Source\\EllersMaze\\EllersMaze.Build.cs",
 		"D:\\Studying\\Tracking\\QLearning\\Source\\QLearning.Target.cs",
 		"D:\\Studying\\Tracking\\QLearning\\Source\\QLearningEditor.Target.cs"

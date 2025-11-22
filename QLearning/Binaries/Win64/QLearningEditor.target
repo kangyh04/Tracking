@@ -5246,6 +5246,18 @@
 			"Type": "RequiredResource"
 		},
 		{
+			"Path": "$(ProjectDir)/Plugins/AStar/Binaries/Win64/UnrealEditor-AStar.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(ProjectDir)/Plugins/AStar/Binaries/Win64/UnrealEditor-AStar.pdb",
+			"Type": "SymbolFile"
+		},
+		{
+			"Path": "$(ProjectDir)/Plugins/AStar/Binaries/Win64/UnrealEditor.modules",
+			"Type": "RequiredResource"
+		},
+		{
 			"Path": "$(ProjectDir)/Plugins/EllersMaze/Binaries/Win64/UnrealEditor-EllersMaze.dll",
 			"Type": "DynamicLibrary"
 		},
@@ -30708,6 +30720,10 @@
 			"Type": "UFS"
 		},
 		{
+			"Path": "$(ProjectDir)/Plugins/AStar/AStar.uplugin",
+			"Type": "UFS"
+		},
+		{
 			"Path": "$(ProjectDir)/Plugins/EllersMaze/EllersMaze.uplugin",
 			"Type": "UFS"
 		},
@@ -30719,6 +30735,7 @@
 	"BuildPlugins": [
 		"ACLPlugin",
 		"AISupport",
+		"AStar",
 		"ActorLayerUtilities",
 		"ActorSequence",
 		"AdvancedRenamer",
