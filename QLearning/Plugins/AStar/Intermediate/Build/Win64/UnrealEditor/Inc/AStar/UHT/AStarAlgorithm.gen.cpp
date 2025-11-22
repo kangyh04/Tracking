@@ -6,7 +6,6 @@
 
 #include "UObject/GeneratedCppIncludes.h"
 #include "AStarAlgorithm.h"
-#include "AStarNode.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
@@ -15,7 +14,6 @@ void EmptyLinkFunctionForGeneratedCodeAStarAlgorithm() {}
 // ********** Begin Cross Module References ********************************************************
 ASTAR_API UClass* Z_Construct_UClass_UAStarAlgorithm();
 ASTAR_API UClass* Z_Construct_UClass_UAStarAlgorithm_NoRegister();
-ASTAR_API UScriptStruct* Z_Construct_UScriptStruct_FAStarNode();
 ENGINE_API UClass* Z_Construct_UClass_UBlueprintFunctionLibrary();
 UPackage* Z_Construct_UPackage__Script_AStar();
 // ********** End Cross Module References **********************************************************
@@ -31,7 +29,7 @@ struct Z_Construct_UFunction_UAStarAlgorithm_FindPath_Statics
 		int32 startY;
 		int32 destX;
 		int32 destY;
-		TArray<FAStarNode> ReturnValue;
+		TArray<int32> ReturnValue;
 	};
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
@@ -49,7 +47,7 @@ struct Z_Construct_UFunction_UAStarAlgorithm_FindPath_Statics
 	static const UECodeGen_Private::FIntPropertyParams NewProp_startY;
 	static const UECodeGen_Private::FIntPropertyParams NewProp_destX;
 	static const UECodeGen_Private::FIntPropertyParams NewProp_destY;
-	static const UECodeGen_Private::FStructPropertyParams NewProp_ReturnValue_Inner;
+	static const UECodeGen_Private::FIntPropertyParams NewProp_ReturnValue_Inner;
 	static const UECodeGen_Private::FArrayPropertyParams NewProp_ReturnValue;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static const UECodeGen_Private::FFunctionParams FuncParams;
@@ -61,8 +59,8 @@ const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UAStarAlgorith
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UAStarAlgorithm_FindPath_Statics::NewProp_startY = { "startY", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AStarAlgorithm_eventFindPath_Parms, startY), METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UAStarAlgorithm_FindPath_Statics::NewProp_destX = { "destX", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AStarAlgorithm_eventFindPath_Parms, destX), METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UAStarAlgorithm_FindPath_Statics::NewProp_destY = { "destY", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AStarAlgorithm_eventFindPath_Parms, destY), METADATA_PARAMS(0, nullptr) };
-const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UAStarAlgorithm_FindPath_Statics::NewProp_ReturnValue_Inner = { "ReturnValue", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FAStarNode, METADATA_PARAMS(0, nullptr) }; // 486317542
-const UECodeGen_Private::FArrayPropertyParams Z_Construct_UFunction_UAStarAlgorithm_FindPath_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AStarAlgorithm_eventFindPath_Parms, ReturnValue), EArrayPropertyFlags::None, METADATA_PARAMS(0, nullptr) }; // 486317542
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UAStarAlgorithm_FindPath_Statics::NewProp_ReturnValue_Inner = { "ReturnValue", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FArrayPropertyParams Z_Construct_UFunction_UAStarAlgorithm_FindPath_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AStarAlgorithm_eventFindPath_Parms, ReturnValue), EArrayPropertyFlags::None, METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UAStarAlgorithm_FindPath_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UAStarAlgorithm_FindPath_Statics::NewProp_grid_Inner,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UAStarAlgorithm_FindPath_Statics::NewProp_grid,
@@ -96,7 +94,7 @@ DEFINE_FUNCTION(UAStarAlgorithm::execFindPath)
 	P_GET_PROPERTY(FIntProperty,Z_Param_destY);
 	P_FINISH;
 	P_NATIVE_BEGIN;
-	*(TArray<FAStarNode>*)Z_Param__Result=UAStarAlgorithm::FindPath(Z_Param_grid,Z_Param_width,Z_Param_startX,Z_Param_startY,Z_Param_destX,Z_Param_destY);
+	*(TArray<int32>*)Z_Param__Result=UAStarAlgorithm::FindPath(Z_Param_grid,Z_Param_width,Z_Param_startX,Z_Param_startY,Z_Param_destX,Z_Param_destY);
 	P_NATIVE_END;
 }
 // ********** End Class UAStarAlgorithm Function FindPath ******************************************
@@ -152,7 +150,7 @@ struct Z_Construct_UClass_UAStarAlgorithm_Statics
 #endif // WITH_METADATA
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
-		{ &Z_Construct_UFunction_UAStarAlgorithm_FindPath, "FindPath" }, // 4124137375
+		{ &Z_Construct_UFunction_UAStarAlgorithm_FindPath, "FindPath" }, // 2039024887
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -197,10 +195,10 @@ UAStarAlgorithm::~UAStarAlgorithm() {}
 struct Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_AStar_Source_AStar_Public_AStarAlgorithm_h__Script_AStar_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UAStarAlgorithm, UAStarAlgorithm::StaticClass, TEXT("UAStarAlgorithm"), &Z_Registration_Info_UClass_UAStarAlgorithm, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UAStarAlgorithm), 811343098U) },
+		{ Z_Construct_UClass_UAStarAlgorithm, UAStarAlgorithm::StaticClass, TEXT("UAStarAlgorithm"), &Z_Registration_Info_UClass_UAStarAlgorithm, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UAStarAlgorithm), 3741670203U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_AStar_Source_AStar_Public_AStarAlgorithm_h__Script_AStar_267781683(TEXT("/Script/AStar"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_AStar_Source_AStar_Public_AStarAlgorithm_h__Script_AStar_3827966210(TEXT("/Script/AStar"),
 	Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_AStar_Source_AStar_Public_AStarAlgorithm_h__Script_AStar_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_AStar_Source_AStar_Public_AStarAlgorithm_h__Script_AStar_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

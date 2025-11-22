@@ -16,8 +16,6 @@
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
-struct FAStarNode;
-
 // ********** Begin Class UAStarAlgorithm **********************************************************
 #define FID_Studying_Tracking_QLearning_Plugins_AStar_Source_AStar_Public_AStarAlgorithm_h_35_RPC_WRAPPERS_NO_PURE_DECLS \
 	DECLARE_FUNCTION(execFindPath);

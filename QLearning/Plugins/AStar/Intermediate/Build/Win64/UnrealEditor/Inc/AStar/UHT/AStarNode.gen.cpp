@@ -32,7 +32,7 @@ struct Z_Construct_UScriptStruct_FAStarNode_Statics
 	static constexpr UECodeGen_Private::FMetaDataPairParam Struct_MetaDataParams[] = {
 		{ "BlueprintType", "true" },
 #if !UE_BUILD_SHIPPING
-		{ "Comment", "/**\n * \n */" },
+		{ "Comment", "/**\n *\n */" },
 #endif
 		{ "ModuleRelativePath", "Public/AStarNode.h" },
 	};
@@ -116,10 +116,10 @@ UScriptStruct* Z_Construct_UScriptStruct_FAStarNode()
 struct Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_AStar_Source_AStar_Public_AStarNode_h__Script_AStar_Statics
 {
 	static constexpr FStructRegisterCompiledInInfo ScriptStructInfo[] = {
-		{ FAStarNode::StaticStruct, Z_Construct_UScriptStruct_FAStarNode_Statics::NewStructOps, TEXT("AStarNode"), &Z_Registration_Info_UScriptStruct_FAStarNode, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FAStarNode), 486317542U) },
+		{ FAStarNode::StaticStruct, Z_Construct_UScriptStruct_FAStarNode_Statics::NewStructOps, TEXT("AStarNode"), &Z_Registration_Info_UScriptStruct_FAStarNode, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FAStarNode), 4011750791U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_AStar_Source_AStar_Public_AStarNode_h__Script_AStar_1982365406(TEXT("/Script/AStar"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_AStar_Source_AStar_Public_AStarNode_h__Script_AStar_4154434989(TEXT("/Script/AStar"),
 	nullptr, 0,
 	Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_AStar_Source_AStar_Public_AStarNode_h__Script_AStar_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_AStar_Source_AStar_Public_AStarNode_h__Script_AStar_Statics::ScriptStructInfo),
 	nullptr, 0);

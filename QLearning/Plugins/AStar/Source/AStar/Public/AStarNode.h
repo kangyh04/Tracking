@@ -7,7 +7,7 @@
 #include "AStarNode.generated.h"
 
 /**
- * 
+ *
  */
 USTRUCT(BlueprintType)
 struct FAStarNode
@@ -15,17 +15,17 @@ struct FAStarNode
 	GENERATED_BODY()
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "AStar")
-	int X;
+	int32 X = 0;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "AStar")
-	int Y;
+	int32 Y = 0;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "AStar")
-	int G;
+	int32 G = 0;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "AStar")
-	int H;
+	int32 H = 0;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "AStar")
-	int ParentX;
+	int32 ParentX = 0;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "AStar")
-	int ParentY;
+	int32 ParentY = 0;
 };

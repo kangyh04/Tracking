@@ -41,7 +41,7 @@ public:
 private:
 	static bool Comparison(const FAStarNode& A, const FAStarNode& B)
 	{
-		return (A.G + A.H) > (B.G + B.H) ||
-			((A.G + A.H) == (B.G + B.H) && A.G > B.G);
+		return (A.G + A.H) < (B.G + B.H) ||
+			((A.G + A.H) == (B.G + B.H) && A.H < B.H);
 	}
 };
