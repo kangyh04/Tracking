@@ -87,6 +87,18 @@
     <None Include="..\..\Plugins\EllersMaze\Resources\Icon128.png">
       <Filter>Plugins\EllersMaze\Resources</Filter>
     </None>
+    <Filter Include="Plugins\Q">
+      <UniqueIdentifier>{CD97CCCF-20A1-3F4A-B100-DF469DE34D50}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Plugins\Q\Q.uplugin">
+      <Filter>Plugins\Q</Filter>
+    </None>
+    <Filter Include="Plugins\Q\Resources">
+      <UniqueIdentifier>{C839B9CE-D35F-3E90-8A6F-5231CCED9337}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Plugins\Q\Resources\Icon128.png">
+      <Filter>Plugins\Q\Resources</Filter>
+    </None>
     <Filter Include="Plugins\EllersMaze\Source">
       <UniqueIdentifier>{69B66D29-F5E5-3E04-A7A4-3114D19E0CD9}</UniqueIdentifier>
     </Filter>
@@ -125,6 +137,45 @@
     </ClInclude>
     <ClInclude Include="..\..\Plugins\EllersMaze\Source\EllersMaze\Public\FUCellArray.h">
       <Filter>Plugins\EllersMaze\Source\EllersMaze\Public</Filter>
+    </ClInclude>
+    <Filter Include="Plugins\Q\Source">
+      <UniqueIdentifier>{499E66FC-A494-3FD8-8170-41EB0A936A30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Plugins\Q\Source\Q">
+      <UniqueIdentifier>{54484670-443A-356C-BB20-6F5D1FBDA680}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Plugins\Q\Source\Q\Q.Build.cs">
+      <Filter>Plugins\Q\Source\Q</Filter>
+    </None>
+    <Filter Include="Plugins\Q\Source\Q\Private">
+      <UniqueIdentifier>{83A20BD7-AA48-33D8-87A6-19EC54D3B38F}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Plugins\Q\Source\Q\Private\ActionType.cpp">
+      <Filter>Plugins\Q\Source\Q\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\Q\Source\Q\Private\Q.cpp">
+      <Filter>Plugins\Q\Source\Q\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\Q\Source\Q\Private\QLearningAlgorithm.cpp">
+      <Filter>Plugins\Q\Source\Q\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\Q\Source\Q\Private\QLearningData.cpp">
+      <Filter>Plugins\Q\Source\Q\Private</Filter>
+    </ClCompile>
+    <Filter Include="Plugins\Q\Source\Q\Public">
+      <UniqueIdentifier>{198A28C9-DB92-3123-915B-9200FCE37CF8}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Plugins\Q\Source\Q\Public\ActionType.h">
+      <Filter>Plugins\Q\Source\Q\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Plugins\Q\Source\Q\Public\Q.h">
+      <Filter>Plugins\Q\Source\Q\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Plugins\Q\Source\Q\Public\QLearningAlgorithm.h">
+      <Filter>Plugins\Q\Source\Q\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Plugins\Q\Source\Q\Public\QLearningData.h">
+      <Filter>Plugins\Q\Source\Q\Public</Filter>
     </ClInclude>
     <Filter Include="Source\QLearning">
       <UniqueIdentifier>{849D421F-3B3B-3288-8287-F7E5F17F82D0}</UniqueIdentifier>

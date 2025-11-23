@@ -96,7 +96,7 @@ TArray<int> UAStarAlgorithm::FindPath(const TArray<int> grid, int width, int sta
 	}
 
 	result[startY * width + startX] = NodeState::Start;
-	result[destY * width + destX] = NodeState::Gole;
+	result[destY * width + destX] = NodeState::Goal;
 
 	return result;
 }

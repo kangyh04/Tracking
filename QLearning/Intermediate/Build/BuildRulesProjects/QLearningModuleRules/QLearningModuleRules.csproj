@@ -17,6 +17,7 @@
   <ItemGroup>
   <Compile Include="..\..\..\..\Plugins\AStar\Source\AStar\AStar.Build.cs"><Link>Plugins\AStar\Source\AStar\AStar.Build.cs</Link></Compile>
   <Compile Include="..\..\..\..\Plugins\EllersMaze\Source\EllersMaze\EllersMaze.Build.cs"><Link>Plugins\EllersMaze\Source\EllersMaze\EllersMaze.Build.cs</Link></Compile>
+  <Compile Include="..\..\..\..\Plugins\Q\Source\Q\Q.Build.cs"><Link>Plugins\Q\Source\Q\Q.Build.cs</Link></Compile>
   <Compile Include="..\..\..\..\Source\QLearning.Target.cs"><Link>Source\QLearning.Target.cs</Link></Compile>
   <Compile Include="..\..\..\..\Source\QLearningEditor.Target.cs"><Link>Source\QLearningEditor.Target.cs</Link></Compile>
   <Compile Include="..\..\..\..\Source\QLearning\QLearning.Build.cs"><Link>Source\QLearning\QLearning.Build.cs</Link></Compile>

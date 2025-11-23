@@ -23,7 +23,7 @@ enum NodeState : int
 	Closed,
 	OnRoute,
 	Start,
-	Gole,
+	Goal,
 };
 
 /**

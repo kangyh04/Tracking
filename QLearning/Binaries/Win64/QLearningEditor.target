@@ -5268,6 +5268,18 @@
 		{
 			"Path": "$(ProjectDir)/Plugins/EllersMaze/Binaries/Win64/UnrealEditor.modules",
 			"Type": "RequiredResource"
+		},
+		{
+			"Path": "$(ProjectDir)/Plugins/Q/Binaries/Win64/UnrealEditor-Q.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(ProjectDir)/Plugins/Q/Binaries/Win64/UnrealEditor-Q.pdb",
+			"Type": "SymbolFile"
+		},
+		{
+			"Path": "$(ProjectDir)/Plugins/Q/Binaries/Win64/UnrealEditor.modules",
+			"Type": "RequiredResource"
 		}
 	],
 	"RuntimeDependencies": [
@@ -30728,6 +30740,10 @@
 			"Type": "UFS"
 		},
 		{
+			"Path": "$(ProjectDir)/Plugins/Q/Q.uplugin",
+			"Type": "UFS"
+		},
+		{
 			"Path": "$(ProjectDir)/QLearning.uproject",
 			"Type": "UFS"
 		}
@@ -30901,6 +30917,7 @@
 		"PropertyBindingUtils",
 		"ProxyLODPlugin",
 		"PythonScriptPlugin",
+		"Q",
 		"RenderDocPlugin",
 		"RenderGraphInsights",
 		"ResonanceAudio",
