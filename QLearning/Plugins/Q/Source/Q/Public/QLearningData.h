@@ -130,4 +130,41 @@ USTRUCT(Atomic, Blueprintable, BlueprintType)
 struct FQLearningStatisticsData
 {
 	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "QLearning|Statistics")
+	int32 CurrentEpisode = 0;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "QLearning|Statistics")
+	float TotalReward = 0.0f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "QLearning|Statistics")
+	int32 StepsTaken = 0;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "QLearning|Statistics")
+	int32 SuccessfulEpisodes = 0;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "QLearning|Statistics")
+	float AverageRewardPerEpisode = 0.0f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "QLearning|Statistics")
+	float BestEpisodeReward = -FLT_MAX;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "QLearning|Statistics")
+	int32 ShortestPathLength = INT32_MAX;
+
+	void Reset()
+	{
+		TotalReward = 0.0f;
+		StepsTaken = 0;
+	}
+
+	void UpdateEpisode(float episodeReward, int32 steps, bool success)
+	{
+		CurrentEpisode++;
+		TotalReward += episodeReward;
+		StepsTaken += steps;
+
+		if (success)
+		{
+			SuccessfulEpisodes++;
+			ShortestPathLength = FMath::Min(ShortestPathLength, steps);
+		}
+
+		AverageRewardPerEpisode = TotalReward / CurrentEpisode;
+		BestEpisodeReward = FMath::Max(BestEpisodeReward, episodeReward);
+	}
 };

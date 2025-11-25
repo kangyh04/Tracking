@@ -38,6 +38,7 @@ public class Q : ModuleRules
 				"Engine",
 				"Slate",
 				"SlateCore",
+				"AStar",
 				// ... add private dependencies that you statically link with here ...	
 			}
 			);

@@ -6,6 +6,7 @@
 
 #include "UObject/GeneratedCppIncludes.h"
 #include "QLearningAlgorithm.h"
+#include "QLearningData.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
@@ -16,6 +17,7 @@ COREUOBJECT_API UClass* Z_Construct_UClass_UObject();
 COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FIntPoint();
 Q_API UClass* Z_Construct_UClass_UQLearningAlgorithm();
 Q_API UClass* Z_Construct_UClass_UQLearningAlgorithm_NoRegister();
+Q_API UScriptStruct* Z_Construct_UScriptStruct_FQLearningStateData();
 UPackage* Z_Construct_UPackage__Script_Q();
 // ********** End Cross Module References **********************************************************
 
@@ -197,6 +199,10 @@ struct Z_Construct_UClass_UQLearningAlgorithm_Statics
 		{ "Category", "QLearning" },
 		{ "ModuleRelativePath", "Public/QLearningAlgorithm.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CurrentState_MetaData[] = {
+		{ "Category", "QLearning" },
+		{ "ModuleRelativePath", "Public/QLearningAlgorithm.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FIntPropertyParams NewProp_Maze_Inner;
 	static const UECodeGen_Private::FArrayPropertyParams NewProp_Maze;
@@ -204,6 +210,7 @@ struct Z_Construct_UClass_UQLearningAlgorithm_Statics
 	static const UECodeGen_Private::FIntPropertyParams NewProp_Height;
 	static const UECodeGen_Private::FStructPropertyParams NewProp_StartPos;
 	static const UECodeGen_Private::FStructPropertyParams NewProp_GoalPos;
+	static const UECodeGen_Private::FStructPropertyParams NewProp_CurrentState;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
@@ -222,6 +229,7 @@ const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_UQLearningAlgorit
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_UQLearningAlgorithm_Statics::NewProp_Height = { "Height", nullptr, (EPropertyFlags)0x0010000000020015, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UQLearningAlgorithm, Height), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Height_MetaData), NewProp_Height_MetaData) };
 const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UQLearningAlgorithm_Statics::NewProp_StartPos = { "StartPos", nullptr, (EPropertyFlags)0x0010000000020015, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UQLearningAlgorithm, StartPos), Z_Construct_UScriptStruct_FIntPoint, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_StartPos_MetaData), NewProp_StartPos_MetaData) };
 const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UQLearningAlgorithm_Statics::NewProp_GoalPos = { "GoalPos", nullptr, (EPropertyFlags)0x0010000000020015, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UQLearningAlgorithm, GoalPos), Z_Construct_UScriptStruct_FIntPoint, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_GoalPos_MetaData), NewProp_GoalPos_MetaData) };
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UQLearningAlgorithm_Statics::NewProp_CurrentState = { "CurrentState", nullptr, (EPropertyFlags)0x0010000000020015, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UQLearningAlgorithm, CurrentState), Z_Construct_UScriptStruct_FQLearningStateData, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CurrentState_MetaData), NewProp_CurrentState_MetaData) }; // 3729521384
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UQLearningAlgorithm_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UQLearningAlgorithm_Statics::NewProp_Maze_Inner,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UQLearningAlgorithm_Statics::NewProp_Maze,
@@ -229,6 +237,7 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UQLearnin
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UQLearningAlgorithm_Statics::NewProp_Height,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UQLearningAlgorithm_Statics::NewProp_StartPos,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UQLearningAlgorithm_Statics::NewProp_GoalPos,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UQLearningAlgorithm_Statics::NewProp_CurrentState,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UQLearningAlgorithm_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_UQLearningAlgorithm_Statics::DependentSingletons[])() = {
@@ -268,10 +277,10 @@ UQLearningAlgorithm::~UQLearningAlgorithm() {}
 struct Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_Q_Source_Q_Public_QLearningAlgorithm_h__Script_Q_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UQLearningAlgorithm, UQLearningAlgorithm::StaticClass, TEXT("UQLearningAlgorithm"), &Z_Registration_Info_UClass_UQLearningAlgorithm, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UQLearningAlgorithm), 302812310U) },
+		{ Z_Construct_UClass_UQLearningAlgorithm, UQLearningAlgorithm::StaticClass, TEXT("UQLearningAlgorithm"), &Z_Registration_Info_UClass_UQLearningAlgorithm, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UQLearningAlgorithm), 2784717240U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_Q_Source_Q_Public_QLearningAlgorithm_h__Script_Q_2526382536(TEXT("/Script/Q"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_Q_Source_Q_Public_QLearningAlgorithm_h__Script_Q_3846140957(TEXT("/Script/Q"),
 	Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_Q_Source_Q_Public_QLearningAlgorithm_h__Script_Q_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_Q_Source_Q_Public_QLearningAlgorithm_h__Script_Q_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

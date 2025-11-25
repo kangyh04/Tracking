@@ -381,20 +381,73 @@ struct Z_Construct_UScriptStruct_FQLearningStatisticsData_Statics
 		{ "IsBlueprintBase", "true" },
 		{ "ModuleRelativePath", "Public/QLearningData.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CurrentEpisode_MetaData[] = {
+		{ "Category", "QLearning|Statistics" },
+		{ "ModuleRelativePath", "Public/QLearningData.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_TotalReward_MetaData[] = {
+		{ "Category", "QLearning|Statistics" },
+		{ "ModuleRelativePath", "Public/QLearningData.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_StepsTaken_MetaData[] = {
+		{ "Category", "QLearning|Statistics" },
+		{ "ModuleRelativePath", "Public/QLearningData.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_SuccessfulEpisodes_MetaData[] = {
+		{ "Category", "QLearning|Statistics" },
+		{ "ModuleRelativePath", "Public/QLearningData.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_AverageRewardPerEpisode_MetaData[] = {
+		{ "Category", "QLearning|Statistics" },
+		{ "ModuleRelativePath", "Public/QLearningData.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_BestEpisodeReward_MetaData[] = {
+		{ "Category", "QLearning|Statistics" },
+		{ "ModuleRelativePath", "Public/QLearningData.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ShortestPathLength_MetaData[] = {
+		{ "Category", "QLearning|Statistics" },
+		{ "ModuleRelativePath", "Public/QLearningData.h" },
+	};
 #endif // WITH_METADATA
+	static const UECodeGen_Private::FIntPropertyParams NewProp_CurrentEpisode;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_TotalReward;
+	static const UECodeGen_Private::FIntPropertyParams NewProp_StepsTaken;
+	static const UECodeGen_Private::FIntPropertyParams NewProp_SuccessfulEpisodes;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_AverageRewardPerEpisode;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_BestEpisodeReward;
+	static const UECodeGen_Private::FIntPropertyParams NewProp_ShortestPathLength;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static void* NewStructOps()
 	{
 		return (UScriptStruct::ICppStructOps*)new UScriptStruct::TCppStructOps<FQLearningStatisticsData>();
 	}
 	static const UECodeGen_Private::FStructParams StructParams;
 };
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FQLearningStatisticsData_Statics::NewProp_CurrentEpisode = { "CurrentEpisode", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FQLearningStatisticsData, CurrentEpisode), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CurrentEpisode_MetaData), NewProp_CurrentEpisode_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FQLearningStatisticsData_Statics::NewProp_TotalReward = { "TotalReward", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FQLearningStatisticsData, TotalReward), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_TotalReward_MetaData), NewProp_TotalReward_MetaData) };
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FQLearningStatisticsData_Statics::NewProp_StepsTaken = { "StepsTaken", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FQLearningStatisticsData, StepsTaken), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_StepsTaken_MetaData), NewProp_StepsTaken_MetaData) };
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FQLearningStatisticsData_Statics::NewProp_SuccessfulEpisodes = { "SuccessfulEpisodes", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FQLearningStatisticsData, SuccessfulEpisodes), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_SuccessfulEpisodes_MetaData), NewProp_SuccessfulEpisodes_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FQLearningStatisticsData_Statics::NewProp_AverageRewardPerEpisode = { "AverageRewardPerEpisode", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FQLearningStatisticsData, AverageRewardPerEpisode), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_AverageRewardPerEpisode_MetaData), NewProp_AverageRewardPerEpisode_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FQLearningStatisticsData_Statics::NewProp_BestEpisodeReward = { "BestEpisodeReward", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FQLearningStatisticsData, BestEpisodeReward), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_BestEpisodeReward_MetaData), NewProp_BestEpisodeReward_MetaData) };
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FQLearningStatisticsData_Statics::NewProp_ShortestPathLength = { "ShortestPathLength", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FQLearningStatisticsData, ShortestPathLength), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ShortestPathLength_MetaData), NewProp_ShortestPathLength_MetaData) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FQLearningStatisticsData_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FQLearningStatisticsData_Statics::NewProp_CurrentEpisode,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FQLearningStatisticsData_Statics::NewProp_TotalReward,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FQLearningStatisticsData_Statics::NewProp_StepsTaken,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FQLearningStatisticsData_Statics::NewProp_SuccessfulEpisodes,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FQLearningStatisticsData_Statics::NewProp_AverageRewardPerEpisode,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FQLearningStatisticsData_Statics::NewProp_BestEpisodeReward,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FQLearningStatisticsData_Statics::NewProp_ShortestPathLength,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FQLearningStatisticsData_Statics::PropPointers) < 2048);
 const UECodeGen_Private::FStructParams Z_Construct_UScriptStruct_FQLearningStatisticsData_Statics::StructParams = {
 	(UObject* (*)())Z_Construct_UPackage__Script_Q,
 	nullptr,
 	&NewStructOps,
 	"QLearningStatisticsData",
-	nullptr,
-	0,
+	Z_Construct_UScriptStruct_FQLearningStatisticsData_Statics::PropPointers,
+	UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FQLearningStatisticsData_Statics::PropPointers),
 	sizeof(FQLearningStatisticsData),
 	alignof(FQLearningStatisticsData),
 	RF_Public|RF_Transient|RF_MarkAsNative,
@@ -419,10 +472,10 @@ struct Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_Q_Source_Q_
 		{ FQLearningTrainingData::StaticStruct, Z_Construct_UScriptStruct_FQLearningTrainingData_Statics::NewStructOps, TEXT("QLearningTrainingData"), &Z_Registration_Info_UScriptStruct_FQLearningTrainingData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FQLearningTrainingData), 1350364413U) },
 		{ FQValueData::StaticStruct, Z_Construct_UScriptStruct_FQValueData_Statics::NewStructOps, TEXT("QValueData"), &Z_Registration_Info_UScriptStruct_FQValueData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FQValueData), 1017157045U) },
 		{ FQLearningRewardData::StaticStruct, Z_Construct_UScriptStruct_FQLearningRewardData_Statics::NewStructOps, TEXT("QLearningRewardData"), &Z_Registration_Info_UScriptStruct_FQLearningRewardData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FQLearningRewardData), 929036623U) },
-		{ FQLearningStatisticsData::StaticStruct, Z_Construct_UScriptStruct_FQLearningStatisticsData_Statics::NewStructOps, TEXT("QLearningStatisticsData"), &Z_Registration_Info_UScriptStruct_FQLearningStatisticsData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FQLearningStatisticsData), 4073142099U) },
+		{ FQLearningStatisticsData::StaticStruct, Z_Construct_UScriptStruct_FQLearningStatisticsData_Statics::NewStructOps, TEXT("QLearningStatisticsData"), &Z_Registration_Info_UScriptStruct_FQLearningStatisticsData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FQLearningStatisticsData), 4191341645U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_Q_Source_Q_Public_QLearningData_h__Script_Q_1602637233(TEXT("/Script/Q"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_Q_Source_Q_Public_QLearningData_h__Script_Q_206126020(TEXT("/Script/Q"),
 	nullptr, 0,
 	Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_Q_Source_Q_Public_QLearningData_h__Script_Q_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_Q_Source_Q_Public_QLearningData_h__Script_Q_Statics::ScriptStructInfo),
 	nullptr, 0);

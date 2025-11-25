@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
+#include "QLearningData.h"
 #include "QLearningAlgorithm.generated.h"
 
 /**
@@ -35,4 +36,7 @@ public:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "QLearning")
 	FIntPoint GoalPos;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "QLearning")
+	FQLearningStateData CurrentState;
 };

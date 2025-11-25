@@ -3,7 +3,8 @@
 
 #include "AStarAlgorithm.h"
 
-TArray<int> UAStarAlgorithm::FindPath(const TArray<int> grid, int width, int startX, int startY, int destX, int destY)
+// TArray<int> UAStarAlgorithm::FindPath(const TArray<int> grid, int width, int startX, int startY, int destX, int destY)
+TArray<int32> UAStarAlgorithm::FindPath(const TArray<int32> grid, int32 width, FIntPoint startPos, FIntPoint destPos)
 {
 	TMap<FIntPoint, FAStarNode> closedNodes;
 	TArray<FAStarNode> openNodes;
@@ -17,12 +18,17 @@ TArray<int> UAStarAlgorithm::FindPath(const TArray<int> grid, int width, int sta
 		TPair<int, int>(1, 0)
 	};
 
-	int height = grid.Num() / width;
+	int32 height = grid.Num() / width;
+
+	int32 startX = startPos.X;
+	int32 startY = startPos.Y;
+	int32 destX = destPos.X;
+	int32 destY = destPos.Y;
 
 	currentNode.X = startX;
 	currentNode.Y = startY;
 	currentNode.G = 0;
-	currentNode.H = FMath::Abs(destX - startX) + FMath::Abs(destY - startY);
+	currentNode.H = CalculateManhattanDistance(destPos, startPos);
 	currentNode.ParentX = -1;
 	currentNode.ParentY = -1;
 
@@ -67,14 +73,13 @@ TArray<int> UAStarAlgorithm::FindPath(const TArray<int> grid, int width, int sta
 		}
 	}
 
-	FIntPoint lastPoint(destX, destY);
-	if (closedNodes.Contains(lastPoint) == false)
+	if (closedNodes.Contains(destPos) == false)
 	{
 		UE_LOG(LogTemp, Warning, TEXT("Path not found."));
 		return { 0 };
 	}
 
-	auto lastNode = closedNodes[FIntPoint(destX, destY)];
+	auto lastNode = closedNodes[destPos];
 	int nodeCount = closedNodes.Num();
 
 	while (lastNode.ParentX != -1 && lastNode.ParentY != -1 && nodeCount-- > 0)
