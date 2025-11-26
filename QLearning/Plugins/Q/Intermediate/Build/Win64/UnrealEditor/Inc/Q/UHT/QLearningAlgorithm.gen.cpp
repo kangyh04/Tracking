@@ -17,7 +17,10 @@ COREUOBJECT_API UClass* Z_Construct_UClass_UObject();
 COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FIntPoint();
 Q_API UClass* Z_Construct_UClass_UQLearningAlgorithm();
 Q_API UClass* Z_Construct_UClass_UQLearningAlgorithm_NoRegister();
+Q_API UScriptStruct* Z_Construct_UScriptStruct_FQLearningRewardData();
 Q_API UScriptStruct* Z_Construct_UScriptStruct_FQLearningStateData();
+Q_API UScriptStruct* Z_Construct_UScriptStruct_FQLearningStatisticsData();
+Q_API UScriptStruct* Z_Construct_UScriptStruct_FQValueData();
 UPackage* Z_Construct_UPackage__Script_Q();
 // ********** End Cross Module References **********************************************************
 
@@ -203,6 +206,18 @@ struct Z_Construct_UClass_UQLearningAlgorithm_Statics
 		{ "Category", "QLearning" },
 		{ "ModuleRelativePath", "Public/QLearningAlgorithm.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Statistics_MetaData[] = {
+		{ "Category", "QLearning" },
+		{ "ModuleRelativePath", "Public/QLearningAlgorithm.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_QTable_MetaData[] = {
+		{ "Category", "QLearning" },
+		{ "ModuleRelativePath", "Public/QLearningAlgorithm.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_RewardParameters_MetaData[] = {
+		{ "Category", "QLearning|Parameters" },
+		{ "ModuleRelativePath", "Public/QLearningAlgorithm.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FIntPropertyParams NewProp_Maze_Inner;
 	static const UECodeGen_Private::FArrayPropertyParams NewProp_Maze;
@@ -211,6 +226,11 @@ struct Z_Construct_UClass_UQLearningAlgorithm_Statics
 	static const UECodeGen_Private::FStructPropertyParams NewProp_StartPos;
 	static const UECodeGen_Private::FStructPropertyParams NewProp_GoalPos;
 	static const UECodeGen_Private::FStructPropertyParams NewProp_CurrentState;
+	static const UECodeGen_Private::FStructPropertyParams NewProp_Statistics;
+	static const UECodeGen_Private::FStructPropertyParams NewProp_QTable_ValueProp;
+	static const UECodeGen_Private::FStructPropertyParams NewProp_QTable_Key_KeyProp;
+	static const UECodeGen_Private::FMapPropertyParams NewProp_QTable;
+	static const UECodeGen_Private::FStructPropertyParams NewProp_RewardParameters;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
@@ -229,7 +249,12 @@ const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_UQLearningAlgorit
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_UQLearningAlgorithm_Statics::NewProp_Height = { "Height", nullptr, (EPropertyFlags)0x0010000000020015, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UQLearningAlgorithm, Height), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Height_MetaData), NewProp_Height_MetaData) };
 const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UQLearningAlgorithm_Statics::NewProp_StartPos = { "StartPos", nullptr, (EPropertyFlags)0x0010000000020015, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UQLearningAlgorithm, StartPos), Z_Construct_UScriptStruct_FIntPoint, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_StartPos_MetaData), NewProp_StartPos_MetaData) };
 const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UQLearningAlgorithm_Statics::NewProp_GoalPos = { "GoalPos", nullptr, (EPropertyFlags)0x0010000000020015, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UQLearningAlgorithm, GoalPos), Z_Construct_UScriptStruct_FIntPoint, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_GoalPos_MetaData), NewProp_GoalPos_MetaData) };
-const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UQLearningAlgorithm_Statics::NewProp_CurrentState = { "CurrentState", nullptr, (EPropertyFlags)0x0010000000020015, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UQLearningAlgorithm, CurrentState), Z_Construct_UScriptStruct_FQLearningStateData, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CurrentState_MetaData), NewProp_CurrentState_MetaData) }; // 3729521384
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UQLearningAlgorithm_Statics::NewProp_CurrentState = { "CurrentState", nullptr, (EPropertyFlags)0x0010000000020015, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UQLearningAlgorithm, CurrentState), Z_Construct_UScriptStruct_FQLearningStateData, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CurrentState_MetaData), NewProp_CurrentState_MetaData) }; // 1859056153
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UQLearningAlgorithm_Statics::NewProp_Statistics = { "Statistics", nullptr, (EPropertyFlags)0x0010000000020015, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UQLearningAlgorithm, Statistics), Z_Construct_UScriptStruct_FQLearningStatisticsData, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Statistics_MetaData), NewProp_Statistics_MetaData) }; // 4191341645
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UQLearningAlgorithm_Statics::NewProp_QTable_ValueProp = { "QTable", nullptr, (EPropertyFlags)0x0000000000020001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 1, Z_Construct_UScriptStruct_FQValueData, METADATA_PARAMS(0, nullptr) }; // 1017157045
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UQLearningAlgorithm_Statics::NewProp_QTable_Key_KeyProp = { "QTable_Key", nullptr, (EPropertyFlags)0x0000000000020001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FQLearningStateData, METADATA_PARAMS(0, nullptr) }; // 1859056153
+const UECodeGen_Private::FMapPropertyParams Z_Construct_UClass_UQLearningAlgorithm_Statics::NewProp_QTable = { "QTable", nullptr, (EPropertyFlags)0x0010000000020015, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UQLearningAlgorithm, QTable), EMapPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_QTable_MetaData), NewProp_QTable_MetaData) }; // 1859056153 1017157045
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UQLearningAlgorithm_Statics::NewProp_RewardParameters = { "RewardParameters", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UQLearningAlgorithm, RewardParameters), Z_Construct_UScriptStruct_FQLearningRewardData, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_RewardParameters_MetaData), NewProp_RewardParameters_MetaData) }; // 929036623
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UQLearningAlgorithm_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UQLearningAlgorithm_Statics::NewProp_Maze_Inner,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UQLearningAlgorithm_Statics::NewProp_Maze,
@@ -238,6 +263,11 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UQLearnin
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UQLearningAlgorithm_Statics::NewProp_StartPos,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UQLearningAlgorithm_Statics::NewProp_GoalPos,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UQLearningAlgorithm_Statics::NewProp_CurrentState,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UQLearningAlgorithm_Statics::NewProp_Statistics,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UQLearningAlgorithm_Statics::NewProp_QTable_ValueProp,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UQLearningAlgorithm_Statics::NewProp_QTable_Key_KeyProp,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UQLearningAlgorithm_Statics::NewProp_QTable,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UQLearningAlgorithm_Statics::NewProp_RewardParameters,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UQLearningAlgorithm_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_UQLearningAlgorithm_Statics::DependentSingletons[])() = {
@@ -277,10 +307,10 @@ UQLearningAlgorithm::~UQLearningAlgorithm() {}
 struct Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_Q_Source_Q_Public_QLearningAlgorithm_h__Script_Q_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UQLearningAlgorithm, UQLearningAlgorithm::StaticClass, TEXT("UQLearningAlgorithm"), &Z_Registration_Info_UClass_UQLearningAlgorithm, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UQLearningAlgorithm), 2784717240U) },
+		{ Z_Construct_UClass_UQLearningAlgorithm, UQLearningAlgorithm::StaticClass, TEXT("UQLearningAlgorithm"), &Z_Registration_Info_UClass_UQLearningAlgorithm, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UQLearningAlgorithm), 3206903984U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_Q_Source_Q_Public_QLearningAlgorithm_h__Script_Q_3846140957(TEXT("/Script/Q"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_Q_Source_Q_Public_QLearningAlgorithm_h__Script_Q_4115354039(TEXT("/Script/Q"),
 	Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_Q_Source_Q_Public_QLearningAlgorithm_h__Script_Q_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_Q_Source_Q_Public_QLearningAlgorithm_h__Script_Q_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

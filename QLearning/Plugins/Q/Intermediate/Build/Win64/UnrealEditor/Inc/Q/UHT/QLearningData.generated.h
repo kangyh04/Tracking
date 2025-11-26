@@ -26,7 +26,7 @@ struct FQLearningStateData;
 // ********** End ScriptStruct FQLearningStateData *************************************************
 
 // ********** Begin ScriptStruct FQLearningTrainingData ********************************************
-#define FID_Studying_Tracking_QLearning_Plugins_Q_Source_Q_Public_QLearningData_h_38_GENERATED_BODY \
+#define FID_Studying_Tracking_QLearning_Plugins_Q_Source_Q_Public_QLearningData_h_35_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FQLearningTrainingData_Statics; \
 	Q_API static class UScriptStruct* StaticStruct();
 
@@ -35,7 +35,7 @@ struct FQLearningTrainingData;
 // ********** End ScriptStruct FQLearningTrainingData **********************************************
 
 // ********** Begin ScriptStruct FQValueData *******************************************************
-#define FID_Studying_Tracking_QLearning_Plugins_Q_Source_Q_Public_QLearningData_h_64_GENERATED_BODY \
+#define FID_Studying_Tracking_QLearning_Plugins_Q_Source_Q_Public_QLearningData_h_61_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FQValueData_Statics; \
 	Q_API static class UScriptStruct* StaticStruct();
 
@@ -44,7 +44,7 @@ struct FQValueData;
 // ********** End ScriptStruct FQValueData *********************************************************
 
 // ********** Begin ScriptStruct FQLearningRewardData **********************************************
-#define FID_Studying_Tracking_QLearning_Plugins_Q_Source_Q_Public_QLearningData_h_109_GENERATED_BODY \
+#define FID_Studying_Tracking_QLearning_Plugins_Q_Source_Q_Public_QLearningData_h_106_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FQLearningRewardData_Statics; \
 	Q_API static class UScriptStruct* StaticStruct();
 
@@ -53,7 +53,7 @@ struct FQLearningRewardData;
 // ********** End ScriptStruct FQLearningRewardData ************************************************
 
 // ********** Begin ScriptStruct FQLearningStatisticsData ******************************************
-#define FID_Studying_Tracking_QLearning_Plugins_Q_Source_Q_Public_QLearningData_h_132_GENERATED_BODY \
+#define FID_Studying_Tracking_QLearning_Plugins_Q_Source_Q_Public_QLearningData_h_129_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FQLearningStatisticsData_Statics; \
 	Q_API static class UScriptStruct* StaticStruct();
 

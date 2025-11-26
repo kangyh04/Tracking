@@ -14,19 +14,16 @@ struct FQLearningStateData
 {
 	GENERATED_BODY()
 public:
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "QLearning")
-	int32 X = 0;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "QLearning")
-	int32 Y = 0;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "QLearning")
+	FIntPoint Position;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "QLearning")
 	int32 DistanceToGoal = 0;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "QLearning")
 	int32 VisitedCount = 0;
 
-	void Initialize(int32 x, int32 y, int32 distanceToGoal, int32 visitedCount)
+	void Initialize(FIntPoint position, int32 distanceToGoal, int32 visitedCount)
 	{
-		X = x;
-		Y = y;
+		Position = position;
 		DistanceToGoal = distanceToGoal;
 		VisitedCount = visitedCount;
 	}

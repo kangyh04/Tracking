@@ -22,6 +22,26 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "QLearning")
 	void Train(int32 episodes);
 
+	void RunEpisode();
+
+	bool IsReachedGoal(const FIntPoint& position) const
+	{
+		return position == GoalPos;
+	}
+
+	EQLearningActionType ChooseAction(const FQLearningStateData& state);
+	EQLearningActionType GetBestAction(const FQLearningStateData& state);
+
+	FQLearningStateData GetNextState(const FQLearningStateData& state, EQLearningActionType action);
+
+	float GetReward(const FQLearningStateData& currentState, EQLearningActionType action, const FQLearningStateData& nextState);
+
+	bool IsValidPosition(const FIntPoint& position);
+
+	bool IsOnOptimizedPath(const FIntPoint& position);
+
+	void UpdateQValue(const FQLearningStateData& currentState, EQLearningActionType action, float reward, const FQLearningStateData& nextState);
+
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "QLearning")
 	TArray<int32> Maze;
 
@@ -39,4 +59,13 @@ public:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "QLearning")
 	FQLearningStateData CurrentState;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "QLearning")
+	FQLearningStatisticsData Statistics;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "QLearning")
+	TMap<FQLearningStateData, FQValueData> QTable;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "QLearning|Parameters")
+	FQLearningRewardData RewardParameters;
 };
