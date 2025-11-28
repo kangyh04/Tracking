@@ -13,7 +13,7 @@ void UQLearningAlgorithm::Initialize(int32 width, const TArray<int32>& maze, FIn
 	GoalPos = goalPos;
 
 	int32 distanceToGoal = UAStarAlgorithm::CalculateManhattanDistance(startPos, goalPos);
-	CurrentState.Initialize(startPos, distanceToGoal, 0);
+	CurrentState.Initialize(startPos, distanceToGoal);
 
 	Statistics = FQLearningStatisticsData();
 }
@@ -22,7 +22,8 @@ void UQLearningAlgorithm::Train(int32 episodes)
 {
 	for (int episode = 0; episode < episodes; ++episode)
 	{
-		// Training logic to be implemented
+		RunEpisode();
+
 	}
 }
 
@@ -43,7 +44,19 @@ void UQLearningAlgorithm::RunEpisode()
 		reward += GetReward(state, action, nextState);
 
 		UpdateQValue(state, action, reward, nextState);
+		VisitedCounts.FindOrAdd(state.Position) += 1;
+
+		state = nextState;
+		steps++;
+
+		if (state.Position == GoalPos)
+		{
+			reachedGoal = true;
+			break;
+		}
 	}
+
+	Statistics.UpdateEpisode(reward, steps, reachedGoal);
 }
 
 EQLearningActionType UQLearningAlgorithm::ChooseAction(const FQLearningStateData& state)
@@ -71,6 +84,26 @@ EQLearningActionType UQLearningAlgorithm::GetBestAction(const FQLearningStateDat
 
 FQLearningStateData UQLearningAlgorithm::GetNextState(const FQLearningStateData& state, EQLearningActionType action)
 {
+	FQLearningStateData nextState = state;
+	FIntPoint actionDir = ActionDirections[action];
+
+	int32 newX = state.Position.X + actionDir.X;
+	int32 newY = state.Position.Y + actionDir.Y;
+
+	FIntPoint newPosition = FIntPoint(newX, newY);
+
+	if (IsValidPosition(newPosition))
+	{
+		nextState.Position = newPosition;
+		nextState.DistanceToGoal = UAStarAlgorithm::CalculateManhattanDistance(nextState.Position, GoalPos);
+// 		if (!VisitedCounts.Contains(newPosition))
+// 		{
+// 			VisitedCounts.Add(newPosition, 0);
+// 		}
+// 		VisitedCounts[newPosition] += 1;
+	}
+
+	return nextState;
 }
 
 float UQLearningAlgorithm::GetReward(const FQLearningStateData& currentState, EQLearningActionType action, const FQLearningStateData& nextState)
@@ -81,7 +114,7 @@ float UQLearningAlgorithm::GetReward(const FQLearningStateData& currentState, EQ
 	{
 		totalReward += RewardParameters.GoalReward;
 	}
-	
+
 	if (!IsValidPosition(nextState.Position))
 	{
 		totalReward += RewardParameters.Wall;
@@ -89,7 +122,7 @@ float UQLearningAlgorithm::GetReward(const FQLearningStateData& currentState, EQ
 
 	totalReward += RewardParameters.StepPenalty;
 
-	int32 visitedCount = nextState.VisitedCount;
+	int32 visitedCount = VisitedCounts.Contains(nextState.Position) ? VisitedCounts[nextState.Position] : 0;
 
 	if (visitedCount == 0)
 	{
@@ -122,7 +155,9 @@ float UQLearningAlgorithm::GetReward(const FQLearningStateData& currentState, EQ
 
 bool UQLearningAlgorithm::IsValidPosition(const FIntPoint& position)
 {
-	return false;
+	return position.X >= 0 && position.X < Width &&
+		position.Y >= 0 && position.Y < Height &&
+		Maze[position.Y * Width + position.X] != static_cast<int32>(EQLearningCellType::Wall);
 }
 
 bool UQLearningAlgorithm::IsOnOptimizedPath(const FIntPoint& position)
@@ -131,5 +166,25 @@ bool UQLearningAlgorithm::IsOnOptimizedPath(const FIntPoint& position)
 }
 
 void UQLearningAlgorithm::UpdateQValue(const FQLearningStateData& currentState, EQLearningActionType action, float reward, const FQLearningStateData& nextState)
+{
+	if (!QTable.Contains(currentState))
+	{
+		QTable.Add(currentState, FQValueData());
+	}
+
+	if (!QTable.Contains(nextState))
+	{
+		QTable.Add(nextState, FQValueData());
+	}
+
+	float currentQValue = QTable[currentState].ActionValues[action];
+	float maxNextQValue = QTable[nextState].GetMaxQValue();
+
+	float nextQValue = currentQValue + 0.1f * (reward + 0.9f * maxNextQValue - currentQValue);
+
+	QTable[currentState].ActionValues[action] = nextQValue;
+}
+
+void UQLearningAlgorithm::CalculateOptimizedPath()
 {
 }

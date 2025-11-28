@@ -18,14 +18,11 @@ public:
 	FIntPoint Position;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "QLearning")
 	int32 DistanceToGoal = 0;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "QLearning")
-	int32 VisitedCount = 0;
 
-	void Initialize(FIntPoint position, int32 distanceToGoal, int32 visitedCount)
+	void Initialize(FIntPoint position, int32 distanceToGoal)
 	{
 		Position = position;
 		DistanceToGoal = distanceToGoal;
-		VisitedCount = visitedCount;
 	}
 };
 

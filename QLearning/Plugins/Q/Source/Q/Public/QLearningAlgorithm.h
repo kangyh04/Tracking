@@ -42,6 +42,8 @@ public:
 
 	void UpdateQValue(const FQLearningStateData& currentState, EQLearningActionType action, float reward, const FQLearningStateData& nextState);
 
+	void CalculateOptimizedPath();
+
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "QLearning")
 	TArray<int32> Maze;
 
@@ -68,4 +70,16 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "QLearning|Parameters")
 	FQLearningRewardData RewardParameters;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "QLearning|Parameters")
+	TMap<EQLearningActionType, FIntPoint> ActionDirections =
+	{
+		{EQLearningActionType::Up, FIntPoint(0, -1)},
+		{EQLearningActionType::Down, FIntPoint(0, 1)},
+		{EQLearningActionType::Left, FIntPoint(-1, 0)},
+		{EQLearningActionType::Right, FIntPoint(1, 0)}
+	};
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "QLearning|Parameters")
+	TMap<FIntPoint, int32> VisitedCounts;
 };

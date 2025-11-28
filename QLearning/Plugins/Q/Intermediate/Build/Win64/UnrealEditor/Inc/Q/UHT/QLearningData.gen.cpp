@@ -51,14 +51,9 @@ struct Z_Construct_UScriptStruct_FQLearningStateData_Statics
 		{ "Category", "QLearning" },
 		{ "ModuleRelativePath", "Public/QLearningData.h" },
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_VisitedCount_MetaData[] = {
-		{ "Category", "QLearning" },
-		{ "ModuleRelativePath", "Public/QLearningData.h" },
-	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FStructPropertyParams NewProp_Position;
 	static const UECodeGen_Private::FIntPropertyParams NewProp_DistanceToGoal;
-	static const UECodeGen_Private::FIntPropertyParams NewProp_VisitedCount;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static void* NewStructOps()
 	{
@@ -68,11 +63,9 @@ struct Z_Construct_UScriptStruct_FQLearningStateData_Statics
 };
 const UECodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FQLearningStateData_Statics::NewProp_Position = { "Position", nullptr, (EPropertyFlags)0x0010000000000015, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FQLearningStateData, Position), Z_Construct_UScriptStruct_FIntPoint, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Position_MetaData), NewProp_Position_MetaData) };
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FQLearningStateData_Statics::NewProp_DistanceToGoal = { "DistanceToGoal", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FQLearningStateData, DistanceToGoal), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_DistanceToGoal_MetaData), NewProp_DistanceToGoal_MetaData) };
-const UECodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FQLearningStateData_Statics::NewProp_VisitedCount = { "VisitedCount", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FQLearningStateData, VisitedCount), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_VisitedCount_MetaData), NewProp_VisitedCount_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FQLearningStateData_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FQLearningStateData_Statics::NewProp_Position,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FQLearningStateData_Statics::NewProp_DistanceToGoal,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FQLearningStateData_Statics::NewProp_VisitedCount,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FQLearningStateData_Statics::PropPointers) < 2048);
 const UECodeGen_Private::FStructParams Z_Construct_UScriptStruct_FQLearningStateData_Statics::StructParams = {
@@ -145,11 +138,11 @@ struct Z_Construct_UScriptStruct_FQLearningTrainingData_Statics
 	}
 	static const UECodeGen_Private::FStructParams StructParams;
 };
-const UECodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FQLearningTrainingData_Statics::NewProp_CurrentState = { "CurrentState", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FQLearningTrainingData, CurrentState), Z_Construct_UScriptStruct_FQLearningStateData, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CurrentState_MetaData), NewProp_CurrentState_MetaData) }; // 1859056153
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FQLearningTrainingData_Statics::NewProp_CurrentState = { "CurrentState", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FQLearningTrainingData, CurrentState), Z_Construct_UScriptStruct_FQLearningStateData, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CurrentState_MetaData), NewProp_CurrentState_MetaData) }; // 1300211242
 const UECodeGen_Private::FBytePropertyParams Z_Construct_UScriptStruct_FQLearningTrainingData_Statics::NewProp_ActionTaken_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, nullptr, METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FEnumPropertyParams Z_Construct_UScriptStruct_FQLearningTrainingData_Statics::NewProp_ActionTaken = { "ActionTaken", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FQLearningTrainingData, ActionTaken), Z_Construct_UEnum_Q_EQLearningActionType, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ActionTaken_MetaData), NewProp_ActionTaken_MetaData) }; // 3921264672
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FQLearningTrainingData_Statics::NewProp_RewardReceived = { "RewardReceived", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FQLearningTrainingData, RewardReceived), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_RewardReceived_MetaData), NewProp_RewardReceived_MetaData) };
-const UECodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FQLearningTrainingData_Statics::NewProp_NextState = { "NextState", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FQLearningTrainingData, NextState), Z_Construct_UScriptStruct_FQLearningStateData, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_NextState_MetaData), NewProp_NextState_MetaData) }; // 1859056153
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FQLearningTrainingData_Statics::NewProp_NextState = { "NextState", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FQLearningTrainingData, NextState), Z_Construct_UScriptStruct_FQLearningStateData, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_NextState_MetaData), NewProp_NextState_MetaData) }; // 1300211242
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FQLearningTrainingData_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FQLearningTrainingData_Statics::NewProp_CurrentState,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FQLearningTrainingData_Statics::NewProp_ActionTaken_Underlying,
@@ -462,14 +455,14 @@ UScriptStruct* Z_Construct_UScriptStruct_FQLearningStatisticsData()
 struct Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_Q_Source_Q_Public_QLearningData_h__Script_Q_Statics
 {
 	static constexpr FStructRegisterCompiledInInfo ScriptStructInfo[] = {
-		{ FQLearningStateData::StaticStruct, Z_Construct_UScriptStruct_FQLearningStateData_Statics::NewStructOps, TEXT("QLearningStateData"), &Z_Registration_Info_UScriptStruct_FQLearningStateData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FQLearningStateData), 1859056153U) },
-		{ FQLearningTrainingData::StaticStruct, Z_Construct_UScriptStruct_FQLearningTrainingData_Statics::NewStructOps, TEXT("QLearningTrainingData"), &Z_Registration_Info_UScriptStruct_FQLearningTrainingData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FQLearningTrainingData), 1265176746U) },
+		{ FQLearningStateData::StaticStruct, Z_Construct_UScriptStruct_FQLearningStateData_Statics::NewStructOps, TEXT("QLearningStateData"), &Z_Registration_Info_UScriptStruct_FQLearningStateData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FQLearningStateData), 1300211242U) },
+		{ FQLearningTrainingData::StaticStruct, Z_Construct_UScriptStruct_FQLearningTrainingData_Statics::NewStructOps, TEXT("QLearningTrainingData"), &Z_Registration_Info_UScriptStruct_FQLearningTrainingData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FQLearningTrainingData), 4282410898U) },
 		{ FQValueData::StaticStruct, Z_Construct_UScriptStruct_FQValueData_Statics::NewStructOps, TEXT("QValueData"), &Z_Registration_Info_UScriptStruct_FQValueData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FQValueData), 1017157045U) },
 		{ FQLearningRewardData::StaticStruct, Z_Construct_UScriptStruct_FQLearningRewardData_Statics::NewStructOps, TEXT("QLearningRewardData"), &Z_Registration_Info_UScriptStruct_FQLearningRewardData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FQLearningRewardData), 929036623U) },
 		{ FQLearningStatisticsData::StaticStruct, Z_Construct_UScriptStruct_FQLearningStatisticsData_Statics::NewStructOps, TEXT("QLearningStatisticsData"), &Z_Registration_Info_UScriptStruct_FQLearningStatisticsData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FQLearningStatisticsData), 4191341645U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_Q_Source_Q_Public_QLearningData_h__Script_Q_4190721346(TEXT("/Script/Q"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_Q_Source_Q_Public_QLearningData_h__Script_Q_1190061965(TEXT("/Script/Q"),
 	nullptr, 0,
 	Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_Q_Source_Q_Public_QLearningData_h__Script_Q_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_Q_Source_Q_Public_QLearningData_h__Script_Q_Statics::ScriptStructInfo),
 	nullptr, 0);
