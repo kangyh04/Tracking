@@ -16,10 +16,12 @@
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
+class UProceduralMeshComponent;
 struct FUCellArray;
 
 // ********** Begin Class UEllersMazeGenerator *****************************************************
 #define FID_Studying_Tracking_QLearning_Plugins_EllersMaze_Source_EllersMaze_Public_EllersMazeGenerator_h_19_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execToProceduralMesh); \
 	DECLARE_FUNCTION(execGenerate);
 
 

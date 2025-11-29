@@ -53,6 +53,45 @@ TArray<FUCellArray> UEllersMazeGenerator::Generate(int width, int height)
 	return maze;
 }
 
+UProceduralMeshComponent* UEllersMazeGenerator::ToProceduralMesh(const TArray<FUCellArray>& maze)
+{
+	auto mesh = NewObject<UProceduralMeshComponent>();
+
+	TArray<FVector> vertices;
+	TArray<int32> triangles;
+
+	int32 height = maze.Num();
+	int32 width = maze[0].InnerArray.Num();
+
+	int32 k = 0;
+
+	for (int32 i = 0; i < maze.Num(); ++i)
+	{
+		for (int32 j = 0; j < maze[i].InnerArray.Num(); ++j)
+		{
+			auto& cell = maze[i].InnerArray[j];
+			for (auto& vertex : cell->GetVertices())
+			{
+				vertices.Add(FVector(
+					vertex.X - i,
+					vertex.Y + j,
+					vertex.Z
+				));
+			}
+
+			for (auto& index : cell->GetIndices())
+			{
+				triangles.Add(index + k);
+			}
+			k += cell->GetVertices().Num();
+		}
+	}
+
+	mesh->CreateMeshSection(0, vertices, triangles, {}, {}, {}, {}, {}, {}, {}, true);
+
+	return mesh;
+}
+
 void UEllersMazeGenerator::CreateRightWall(FUCellArray& cells)
 {
 	for (int i = 0; i < cells.InnerArray.Num() - 1; ++i)

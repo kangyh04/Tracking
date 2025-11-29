@@ -21,6 +21,10 @@ class ELLERSMAZE_API UEllersMazeGenerator : public UBlueprintFunctionLibrary
 public:
 	UFUNCTION(BlueprintCallable, Category = "EllersMaze")
 	static TArray<FUCellArray> Generate(int width, int height);
+
+	UFUNCTION(BlueprintCallable, Category = "EllersMaze")
+	static class UProceduralMeshComponent* ToProceduralMesh(const TArray<FUCellArray>& maze);
+
 private:
 	static void CreateRightWall(FUCellArray& cells);
 	static void CreateBottomWall(FUCellArray& cells);

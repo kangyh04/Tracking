@@ -17,14 +17,14 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 // ********** Begin Class UQLearningAlgorithm ******************************************************
-#define FID_Studying_Tracking_QLearning_Plugins_Q_Source_Q_Public_QLearningAlgorithm_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_Studying_Tracking_QLearning_Plugins_Q_Source_Q_Public_QLearningAlgorithm_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
 	DECLARE_FUNCTION(execTrain); \
 	DECLARE_FUNCTION(execInitialize);
 
 
 Q_API UClass* Z_Construct_UClass_UQLearningAlgorithm_NoRegister();
 
-#define FID_Studying_Tracking_QLearning_Plugins_Q_Source_Q_Public_QLearningAlgorithm_h_16_INCLASS_NO_PURE_DECLS \
+#define FID_Studying_Tracking_QLearning_Plugins_Q_Source_Q_Public_QLearningAlgorithm_h_17_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUQLearningAlgorithm(); \
 	friend struct Z_Construct_UClass_UQLearningAlgorithm_Statics; \
@@ -35,7 +35,7 @@ public: \
 	DECLARE_SERIALIZER(UQLearningAlgorithm)
 
 
-#define FID_Studying_Tracking_QLearning_Plugins_Q_Source_Q_Public_QLearningAlgorithm_h_16_ENHANCED_CONSTRUCTORS \
+#define FID_Studying_Tracking_QLearning_Plugins_Q_Source_Q_Public_QLearningAlgorithm_h_17_ENHANCED_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UQLearningAlgorithm(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 	/** Deleted move- and copy-constructors, should never be used */ \
@@ -47,13 +47,13 @@ public: \
 	NO_API virtual ~UQLearningAlgorithm();
 
 
-#define FID_Studying_Tracking_QLearning_Plugins_Q_Source_Q_Public_QLearningAlgorithm_h_13_PROLOG
-#define FID_Studying_Tracking_QLearning_Plugins_Q_Source_Q_Public_QLearningAlgorithm_h_16_GENERATED_BODY \
+#define FID_Studying_Tracking_QLearning_Plugins_Q_Source_Q_Public_QLearningAlgorithm_h_14_PROLOG
+#define FID_Studying_Tracking_QLearning_Plugins_Q_Source_Q_Public_QLearningAlgorithm_h_17_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Studying_Tracking_QLearning_Plugins_Q_Source_Q_Public_QLearningAlgorithm_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_Studying_Tracking_QLearning_Plugins_Q_Source_Q_Public_QLearningAlgorithm_h_16_INCLASS_NO_PURE_DECLS \
-	FID_Studying_Tracking_QLearning_Plugins_Q_Source_Q_Public_QLearningAlgorithm_h_16_ENHANCED_CONSTRUCTORS \
+	FID_Studying_Tracking_QLearning_Plugins_Q_Source_Q_Public_QLearningAlgorithm_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_Studying_Tracking_QLearning_Plugins_Q_Source_Q_Public_QLearningAlgorithm_h_17_INCLASS_NO_PURE_DECLS \
+	FID_Studying_Tracking_QLearning_Plugins_Q_Source_Q_Public_QLearningAlgorithm_h_17_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

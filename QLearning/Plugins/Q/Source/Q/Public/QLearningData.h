@@ -24,7 +24,17 @@ public:
 		Position = position;
 		DistanceToGoal = distanceToGoal;
 	}
+
+	bool operator==(const FQLearningStateData& Other) const
+	{
+		return Position == Other.Position && DistanceToGoal == Other.DistanceToGoal;
+	}
 };
+
+FORCEINLINE uint32 GetTypeHash(const FQLearningStateData& StateData)
+{
+	return HashCombine(GetTypeHash(StateData.Position), GetTypeHash(StateData.DistanceToGoal));
+}
 
 USTRUCT(Atomic, Blueprintable, BlueprintType)
 struct FQLearningTrainingData

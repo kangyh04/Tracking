@@ -17,6 +17,7 @@ ELLERSMAZE_API UClass* Z_Construct_UClass_UEllersMazeGenerator();
 ELLERSMAZE_API UClass* Z_Construct_UClass_UEllersMazeGenerator_NoRegister();
 ELLERSMAZE_API UScriptStruct* Z_Construct_UScriptStruct_FUCellArray();
 ENGINE_API UClass* Z_Construct_UClass_UBlueprintFunctionLibrary();
+PROCEDURALMESHCOMPONENT_API UClass* Z_Construct_UClass_UProceduralMeshComponent_NoRegister();
 UPackage* Z_Construct_UPackage__Script_EllersMaze();
 // ********** End Cross Module References **********************************************************
 
@@ -75,12 +76,69 @@ DEFINE_FUNCTION(UEllersMazeGenerator::execGenerate)
 }
 // ********** End Class UEllersMazeGenerator Function Generate *************************************
 
+// ********** Begin Class UEllersMazeGenerator Function ToProceduralMesh ***************************
+struct Z_Construct_UFunction_UEllersMazeGenerator_ToProceduralMesh_Statics
+{
+	struct EllersMazeGenerator_eventToProceduralMesh_Parms
+	{
+		TArray<FUCellArray> maze;
+		UProceduralMeshComponent* ReturnValue;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "EllersMaze" },
+		{ "ModuleRelativePath", "Public/EllersMazeGenerator.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_maze_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ReturnValue_MetaData[] = {
+		{ "EditInline", "true" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FStructPropertyParams NewProp_maze_Inner;
+	static const UECodeGen_Private::FArrayPropertyParams NewProp_maze;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_ReturnValue;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UEllersMazeGenerator_ToProceduralMesh_Statics::NewProp_maze_Inner = { "maze", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FUCellArray, METADATA_PARAMS(0, nullptr) }; // 2368078592
+const UECodeGen_Private::FArrayPropertyParams Z_Construct_UFunction_UEllersMazeGenerator_ToProceduralMesh_Statics::NewProp_maze = { "maze", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(EllersMazeGenerator_eventToProceduralMesh_Parms, maze), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_maze_MetaData), NewProp_maze_MetaData) }; // 2368078592
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UEllersMazeGenerator_ToProceduralMesh_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000080588, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(EllersMazeGenerator_eventToProceduralMesh_Parms, ReturnValue), Z_Construct_UClass_UProceduralMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ReturnValue_MetaData), NewProp_ReturnValue_MetaData) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UEllersMazeGenerator_ToProceduralMesh_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UEllersMazeGenerator_ToProceduralMesh_Statics::NewProp_maze_Inner,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UEllersMazeGenerator_ToProceduralMesh_Statics::NewProp_maze,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UEllersMazeGenerator_ToProceduralMesh_Statics::NewProp_ReturnValue,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UEllersMazeGenerator_ToProceduralMesh_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UEllersMazeGenerator_ToProceduralMesh_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_UEllersMazeGenerator, nullptr, "ToProceduralMesh", Z_Construct_UFunction_UEllersMazeGenerator_ToProceduralMesh_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UEllersMazeGenerator_ToProceduralMesh_Statics::PropPointers), sizeof(Z_Construct_UFunction_UEllersMazeGenerator_ToProceduralMesh_Statics::EllersMazeGenerator_eventToProceduralMesh_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04422401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UEllersMazeGenerator_ToProceduralMesh_Statics::Function_MetaDataParams), Z_Construct_UFunction_UEllersMazeGenerator_ToProceduralMesh_Statics::Function_MetaDataParams)},  };
+static_assert(sizeof(Z_Construct_UFunction_UEllersMazeGenerator_ToProceduralMesh_Statics::EllersMazeGenerator_eventToProceduralMesh_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_UEllersMazeGenerator_ToProceduralMesh()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UEllersMazeGenerator_ToProceduralMesh_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(UEllersMazeGenerator::execToProceduralMesh)
+{
+	P_GET_TARRAY_REF(FUCellArray,Z_Param_Out_maze);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	*(UProceduralMeshComponent**)Z_Param__Result=UEllersMazeGenerator::ToProceduralMesh(Z_Param_Out_maze);
+	P_NATIVE_END;
+}
+// ********** End Class UEllersMazeGenerator Function ToProceduralMesh *****************************
+
 // ********** Begin Class UEllersMazeGenerator *****************************************************
 void UEllersMazeGenerator::StaticRegisterNativesUEllersMazeGenerator()
 {
 	UClass* Class = UEllersMazeGenerator::StaticClass();
 	static const FNameNativePtrPair Funcs[] = {
 		{ "Generate", &UEllersMazeGenerator::execGenerate },
+		{ "ToProceduralMesh", &UEllersMazeGenerator::execToProceduralMesh },
 	};
 	FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 }
@@ -127,6 +185,7 @@ struct Z_Construct_UClass_UEllersMazeGenerator_Statics
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
 		{ &Z_Construct_UFunction_UEllersMazeGenerator_Generate, "Generate" }, // 3361578649
+		{ &Z_Construct_UFunction_UEllersMazeGenerator_ToProceduralMesh, "ToProceduralMesh" }, // 857133457
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -171,10 +230,10 @@ UEllersMazeGenerator::~UEllersMazeGenerator() {}
 struct Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_EllersMaze_Source_EllersMaze_Public_EllersMazeGenerator_h__Script_EllersMaze_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UEllersMazeGenerator, UEllersMazeGenerator::StaticClass, TEXT("UEllersMazeGenerator"), &Z_Registration_Info_UClass_UEllersMazeGenerator, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UEllersMazeGenerator), 438119500U) },
+		{ Z_Construct_UClass_UEllersMazeGenerator, UEllersMazeGenerator::StaticClass, TEXT("UEllersMazeGenerator"), &Z_Registration_Info_UClass_UEllersMazeGenerator, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UEllersMazeGenerator), 1815311826U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_EllersMaze_Source_EllersMaze_Public_EllersMazeGenerator_h__Script_EllersMaze_2347285629(TEXT("/Script/EllersMaze"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_EllersMaze_Source_EllersMaze_Public_EllersMazeGenerator_h__Script_EllersMaze_408065748(TEXT("/Script/EllersMaze"),
 	Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_EllersMaze_Source_EllersMaze_Public_EllersMazeGenerator_h__Script_EllersMaze_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_EllersMaze_Source_EllersMaze_Public_EllersMazeGenerator_h__Script_EllersMaze_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

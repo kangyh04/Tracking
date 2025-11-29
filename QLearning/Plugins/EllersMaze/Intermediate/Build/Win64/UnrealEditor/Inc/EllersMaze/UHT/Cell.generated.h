@@ -17,6 +17,11 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 // ********** Begin Class UCell ********************************************************************
+#define FID_Studying_Tracking_QLearning_Plugins_EllersMaze_Source_EllersMaze_Public_Cell_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execGetIndices); \
+	DECLARE_FUNCTION(execGetVertices);
+
+
 ELLERSMAZE_API UClass* Z_Construct_UClass_UCell_NoRegister();
 
 #define FID_Studying_Tracking_QLearning_Plugins_EllersMaze_Source_EllersMaze_Public_Cell_h_15_INCLASS_NO_PURE_DECLS \
@@ -46,6 +51,7 @@ public: \
 #define FID_Studying_Tracking_QLearning_Plugins_EllersMaze_Source_EllersMaze_Public_Cell_h_15_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
+	FID_Studying_Tracking_QLearning_Plugins_EllersMaze_Source_EllersMaze_Public_Cell_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
 	FID_Studying_Tracking_QLearning_Plugins_EllersMaze_Source_EllersMaze_Public_Cell_h_15_INCLASS_NO_PURE_DECLS \
 	FID_Studying_Tracking_QLearning_Plugins_EllersMaze_Source_EllersMaze_Public_Cell_h_15_ENHANCED_CONSTRUCTORS \
 private: \
