@@ -92,6 +92,43 @@ UProceduralMeshComponent* UEllersMazeGenerator::ToProceduralMesh(const TArray<FU
 	return mesh;
 }
 
+TArray<int32> UEllersMazeGenerator::MazeToIntArray(const TArray<FUCellArray>& maze)
+{
+	int32 width = maze[0].InnerArray.Num() * 2;
+	// NOTE : each cell is represented by 2x2 integers
+	int32 length = maze.Num() * 2 * maze[0].InnerArray.Num() * 2;
+	TArray<int32> result;
+	result.SetNum(length);
+
+	// for (int i = maze.Num() - 1; i >= 0; --i)
+	for (int32 i = 0; i < maze.Num(); --i)
+	{
+		for (int32 j = 0; j < maze[i].InnerArray.Num(); ++j)
+		{
+			auto& cell = maze[i].InnerArray[j];
+
+			int32 cellValue = 0;
+
+			// NOTE : a cell is configured by 4 part
+			// left top : 0 (always 0)
+			// right top : 0 or 1 (if there is a right wall)
+			// left bottom : 0 or 1 (if there is a bottom wall)
+			// right bottom : 0 or 1 (if there is a right wall or a bottom wall)
+			int32 leftTopIndex = (i * 2 + 1) * width + j * 2;
+			int32 rightTopIndex = leftTopIndex + 1;
+			int32 leftBottomIndex = leftTopIndex - width;
+			int32 rightBottomIndex = rightBottomIndex + 1;
+
+			result[leftTopIndex] = 0;
+			result[rightTopIndex] = cell->RightWall() ? 1 : 0;
+			result[leftBottomIndex] = cell->BottomWall() ? 1 : 0;
+			result[rightBottomIndex] = result[rightTopIndex] | result[leftBottomIndex];
+		}
+	}
+
+	return result;
+}
+
 void UEllersMazeGenerator::CreateRightWall(FUCellArray& cells)
 {
 	for (int i = 0; i < cells.InnerArray.Num() - 1; ++i)

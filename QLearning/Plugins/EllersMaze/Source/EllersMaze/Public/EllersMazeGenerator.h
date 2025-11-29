@@ -25,6 +25,9 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "EllersMaze")
 	static class UProceduralMeshComponent* ToProceduralMesh(const TArray<FUCellArray>& maze);
 
+	UFUNCTION(BlueprintCallable, Category = "EllersMaze")
+	static TArray<int32> MazeToIntArray(const TArray<FUCellArray>& maze);
+
 private:
 	static void CreateRightWall(FUCellArray& cells);
 	static void CreateBottomWall(FUCellArray& cells);

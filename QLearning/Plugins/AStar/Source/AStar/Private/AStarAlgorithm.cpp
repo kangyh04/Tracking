@@ -34,13 +34,13 @@ TArray<int32> UAStarAlgorithm::FindPath(const TArray<int32> grid, int32 width, F
 
 	openNodes.HeapPush(currentNode, Comparison);
 
-	TArray<int> result = grid;
+	TArray<int32> result = grid;
 
 	while (openNodes.Num() > 0)
 	{
 		openNodes.HeapPop(currentNode, Comparison);
 		closedNodes.Add(FIntPoint(currentNode.X, currentNode.Y), currentNode);
-		result[currentNode.Y * width + currentNode.X] = NodeState::Closed;
+		result[currentNode.Y * width + currentNode.X] = static_cast<int8>(NodeState::Closed);
 
 		if (currentNode.X == destX && currentNode.Y == destY)
 		{
@@ -55,7 +55,7 @@ TArray<int32> UAStarAlgorithm::FindPath(const TArray<int32> grid, int32 width, F
 			if (0 < neighborX && neighborX <= width &&
 				0 < neighborY && neighborY <= height)
 			{
-				if (result[neighborY * width + neighborX] == NodeState::Hide)
+				if (result[neighborY * width + neighborX] == static_cast<int8>(NodeState::Hide))
 				{
 					FAStarNode neighborNode;
 					neighborNode.X = neighborX;
@@ -65,7 +65,7 @@ TArray<int32> UAStarAlgorithm::FindPath(const TArray<int32> grid, int32 width, F
 					neighborNode.ParentX = currentNode.X;
 					neighborNode.ParentY = currentNode.Y;
 
-					result[neighborY * width + neighborX] = NodeState::Open;
+					result[neighborY * width + neighborX] = static_cast<int8>(NodeState::Open);
 
 					openNodes.HeapPush(neighborNode, Comparison);
 				}
@@ -87,7 +87,7 @@ TArray<int32> UAStarAlgorithm::FindPath(const TArray<int32> grid, int32 width, F
 
 		auto parentPoint = FIntPoint(lastNode.ParentX, lastNode.ParentY);
 
-		result[lastNode.Y * width + lastNode.X] = NodeState::OnRoute;
+		result[lastNode.Y * width + lastNode.X] = static_cast<int8>(NodeState::OnRoute);
 
 		if (closedNodes.Contains(parentPoint))
 		{
@@ -100,8 +100,8 @@ TArray<int32> UAStarAlgorithm::FindPath(const TArray<int32> grid, int32 width, F
 		}
 	}
 
-	result[startY * width + startX] = NodeState::Start;
-	result[destY * width + destX] = NodeState::Goal;
+	result[startY * width + startX] = static_cast<int8>(NodeState::Start);
+	result[destY * width + destX] = static_cast<int8>(NodeState::Goal);
 
 	return result;
 }

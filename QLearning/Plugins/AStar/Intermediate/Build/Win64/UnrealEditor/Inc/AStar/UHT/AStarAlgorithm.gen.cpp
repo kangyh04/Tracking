@@ -14,10 +14,141 @@ void EmptyLinkFunctionForGeneratedCodeAStarAlgorithm() {}
 // ********** Begin Cross Module References ********************************************************
 ASTAR_API UClass* Z_Construct_UClass_UAStarAlgorithm();
 ASTAR_API UClass* Z_Construct_UClass_UAStarAlgorithm_NoRegister();
+ASTAR_API UEnum* Z_Construct_UEnum_AStar_Direction();
+ASTAR_API UEnum* Z_Construct_UEnum_AStar_NodeState();
 COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FIntPoint();
 ENGINE_API UClass* Z_Construct_UClass_UBlueprintFunctionLibrary();
 UPackage* Z_Construct_UPackage__Script_AStar();
 // ********** End Cross Module References **********************************************************
+
+// ********** Begin Enum Direction *****************************************************************
+static FEnumRegistrationInfo Z_Registration_Info_UEnum_Direction;
+static UEnum* Direction_StaticEnum()
+{
+	if (!Z_Registration_Info_UEnum_Direction.OuterSingleton)
+	{
+		Z_Registration_Info_UEnum_Direction.OuterSingleton = GetStaticEnum(Z_Construct_UEnum_AStar_Direction, (UObject*)Z_Construct_UPackage__Script_AStar(), TEXT("Direction"));
+	}
+	return Z_Registration_Info_UEnum_Direction.OuterSingleton;
+}
+template<> ASTAR_API UEnum* StaticEnum<Direction>()
+{
+	return Direction_StaticEnum();
+}
+struct Z_Construct_UEnum_AStar_Direction_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[] = {
+		{ "BlueprintType", "true" },
+		{ "Down.DisplayName", "Down" },
+		{ "Down.Name", "Direction::Down" },
+		{ "Left.DisplayName", "Left" },
+		{ "Left.Name", "Direction::Left" },
+		{ "ModuleRelativePath", "Public/AStarAlgorithm.h" },
+		{ "Right.DisplayName", "Right" },
+		{ "Right.Name", "Direction::Right" },
+		{ "Up.DisplayName", "Up" },
+		{ "Up.Name", "Direction::Up" },
+	};
+#endif // WITH_METADATA
+	static constexpr UECodeGen_Private::FEnumeratorParam Enumerators[] = {
+		{ "Direction::Up", (int64)Direction::Up },
+		{ "Direction::Down", (int64)Direction::Down },
+		{ "Direction::Left", (int64)Direction::Left },
+		{ "Direction::Right", (int64)Direction::Right },
+	};
+	static const UECodeGen_Private::FEnumParams EnumParams;
+};
+const UECodeGen_Private::FEnumParams Z_Construct_UEnum_AStar_Direction_Statics::EnumParams = {
+	(UObject*(*)())Z_Construct_UPackage__Script_AStar,
+	nullptr,
+	"Direction",
+	"Direction",
+	Z_Construct_UEnum_AStar_Direction_Statics::Enumerators,
+	RF_Public|RF_Transient|RF_MarkAsNative,
+	UE_ARRAY_COUNT(Z_Construct_UEnum_AStar_Direction_Statics::Enumerators),
+	EEnumFlags::None,
+	(uint8)UEnum::ECppForm::EnumClass,
+	METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UEnum_AStar_Direction_Statics::Enum_MetaDataParams), Z_Construct_UEnum_AStar_Direction_Statics::Enum_MetaDataParams)
+};
+UEnum* Z_Construct_UEnum_AStar_Direction()
+{
+	if (!Z_Registration_Info_UEnum_Direction.InnerSingleton)
+	{
+		UECodeGen_Private::ConstructUEnum(Z_Registration_Info_UEnum_Direction.InnerSingleton, Z_Construct_UEnum_AStar_Direction_Statics::EnumParams);
+	}
+	return Z_Registration_Info_UEnum_Direction.InnerSingleton;
+}
+// ********** End Enum Direction *******************************************************************
+
+// ********** Begin Enum NodeState *****************************************************************
+static FEnumRegistrationInfo Z_Registration_Info_UEnum_NodeState;
+static UEnum* NodeState_StaticEnum()
+{
+	if (!Z_Registration_Info_UEnum_NodeState.OuterSingleton)
+	{
+		Z_Registration_Info_UEnum_NodeState.OuterSingleton = GetStaticEnum(Z_Construct_UEnum_AStar_NodeState, (UObject*)Z_Construct_UPackage__Script_AStar(), TEXT("NodeState"));
+	}
+	return Z_Registration_Info_UEnum_NodeState.OuterSingleton;
+}
+template<> ASTAR_API UEnum* StaticEnum<NodeState>()
+{
+	return NodeState_StaticEnum();
+}
+struct Z_Construct_UEnum_AStar_NodeState_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[] = {
+		{ "BlueprintType", "true" },
+		{ "Closed.DisplayName", "Closed" },
+		{ "Closed.Name", "NodeState::Closed" },
+		{ "Goal.DisplayName", "Goal" },
+		{ "Goal.Name", "NodeState::Goal" },
+		{ "Hide.DisplayName", "Hide" },
+		{ "Hide.Name", "NodeState::Hide" },
+		{ "ModuleRelativePath", "Public/AStarAlgorithm.h" },
+		{ "OnRoute.DisplayName", "OnRoute" },
+		{ "OnRoute.Name", "NodeState::OnRoute" },
+		{ "Open.DisplayName", "Open" },
+		{ "Open.Name", "NodeState::Open" },
+		{ "Start.DisplayName", "Start" },
+		{ "Start.Name", "NodeState::Start" },
+		{ "Wall.DisplayName", "Wall" },
+		{ "Wall.Name", "NodeState::Wall" },
+	};
+#endif // WITH_METADATA
+	static constexpr UECodeGen_Private::FEnumeratorParam Enumerators[] = {
+		{ "NodeState::Hide", (int64)NodeState::Hide },
+		{ "NodeState::Wall", (int64)NodeState::Wall },
+		{ "NodeState::Open", (int64)NodeState::Open },
+		{ "NodeState::Closed", (int64)NodeState::Closed },
+		{ "NodeState::OnRoute", (int64)NodeState::OnRoute },
+		{ "NodeState::Start", (int64)NodeState::Start },
+		{ "NodeState::Goal", (int64)NodeState::Goal },
+	};
+	static const UECodeGen_Private::FEnumParams EnumParams;
+};
+const UECodeGen_Private::FEnumParams Z_Construct_UEnum_AStar_NodeState_Statics::EnumParams = {
+	(UObject*(*)())Z_Construct_UPackage__Script_AStar,
+	nullptr,
+	"NodeState",
+	"NodeState",
+	Z_Construct_UEnum_AStar_NodeState_Statics::Enumerators,
+	RF_Public|RF_Transient|RF_MarkAsNative,
+	UE_ARRAY_COUNT(Z_Construct_UEnum_AStar_NodeState_Statics::Enumerators),
+	EEnumFlags::None,
+	(uint8)UEnum::ECppForm::EnumClass,
+	METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UEnum_AStar_NodeState_Statics::Enum_MetaDataParams), Z_Construct_UEnum_AStar_NodeState_Statics::Enum_MetaDataParams)
+};
+UEnum* Z_Construct_UEnum_AStar_NodeState()
+{
+	if (!Z_Registration_Info_UEnum_NodeState.InnerSingleton)
+	{
+		UECodeGen_Private::ConstructUEnum(Z_Registration_Info_UEnum_NodeState.InnerSingleton, Z_Construct_UEnum_AStar_NodeState_Statics::EnumParams);
+	}
+	return Z_Registration_Info_UEnum_NodeState.InnerSingleton;
+}
+// ********** End Enum NodeState *******************************************************************
 
 // ********** Begin Class UAStarAlgorithm Function CalculateManhattanDistance **********************
 struct Z_Construct_UFunction_UAStarAlgorithm_CalculateManhattanDistance_Statics
@@ -245,14 +376,18 @@ UAStarAlgorithm::~UAStarAlgorithm() {}
 // ********** Begin Registration *******************************************************************
 struct Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_AStar_Source_AStar_Public_AStarAlgorithm_h__Script_AStar_Statics
 {
+	static constexpr FEnumRegisterCompiledInInfo EnumInfo[] = {
+		{ Direction_StaticEnum, TEXT("Direction"), &Z_Registration_Info_UEnum_Direction, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3339166988U) },
+		{ NodeState_StaticEnum, TEXT("NodeState"), &Z_Registration_Info_UEnum_NodeState, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3513789933U) },
+	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
 		{ Z_Construct_UClass_UAStarAlgorithm, UAStarAlgorithm::StaticClass, TEXT("UAStarAlgorithm"), &Z_Registration_Info_UClass_UAStarAlgorithm, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UAStarAlgorithm), 149540517U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_AStar_Source_AStar_Public_AStarAlgorithm_h__Script_AStar_100811257(TEXT("/Script/AStar"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_AStar_Source_AStar_Public_AStarAlgorithm_h__Script_AStar_4154213626(TEXT("/Script/AStar"),
 	Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_AStar_Source_AStar_Public_AStarAlgorithm_h__Script_AStar_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_AStar_Source_AStar_Public_AStarAlgorithm_h__Script_AStar_Statics::ClassInfo),
 	nullptr, 0,
-	nullptr, 0);
+	Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_AStar_Source_AStar_Public_AStarAlgorithm_h__Script_AStar_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_AStar_Source_AStar_Public_AStarAlgorithm_h__Script_AStar_Statics::EnumInfo));
 // ********** End Registration *********************************************************************
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
