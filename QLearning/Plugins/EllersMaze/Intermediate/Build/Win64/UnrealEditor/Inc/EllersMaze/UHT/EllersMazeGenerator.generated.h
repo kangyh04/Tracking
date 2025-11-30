@@ -16,6 +16,7 @@
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
+class AActor;
 class UProceduralMeshComponent;
 struct FUCellArray;
 

@@ -4294,6 +4294,14 @@
 			"Type": "SymbolFile"
 		},
 		{
+			"Path": "$(EngineDir)/Plugins/Marketplace/FabLauncher/Binaries/Win64/UnrealEditor-FabSharedInterchangeHandler.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Marketplace/FabLauncher/Binaries/Win64/UnrealEditor-FabSharedInterchangeHandler.pdb",
+			"Type": "SymbolFile"
+		},
+		{
 			"Path": "$(EngineDir)/Plugins/Marketplace/FabLauncher/Binaries/Win64/UnrealEditor.modules",
 			"Type": "RequiredResource"
 		},

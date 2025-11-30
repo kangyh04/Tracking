@@ -23,7 +23,7 @@ public:
 	static TArray<FUCellArray> Generate(int width, int height);
 
 	UFUNCTION(BlueprintCallable, Category = "EllersMaze")
-	static class UProceduralMeshComponent* ToProceduralMesh(const TArray<FUCellArray>& maze);
+	static class UProceduralMeshComponent* ToProceduralMesh(AActor* parent, const TArray<FUCellArray>& maze);
 
 	UFUNCTION(BlueprintCallable, Category = "EllersMaze")
 	static TArray<int32> MazeToIntArray(const TArray<FUCellArray>& maze);

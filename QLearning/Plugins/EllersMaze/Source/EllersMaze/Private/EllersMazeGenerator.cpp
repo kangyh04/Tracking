@@ -53,9 +53,12 @@ TArray<FUCellArray> UEllersMazeGenerator::Generate(int width, int height)
 	return maze;
 }
 
-UProceduralMeshComponent* UEllersMazeGenerator::ToProceduralMesh(const TArray<FUCellArray>& maze)
+UProceduralMeshComponent* UEllersMazeGenerator::ToProceduralMesh(AActor* parent, const TArray<FUCellArray>& maze)
 {
-	auto mesh = NewObject<UProceduralMeshComponent>();
+	auto mesh = NewObject<UProceduralMeshComponent>(parent);
+
+	mesh->RegisterComponent();
+	parent->AddInstanceComponent(mesh);
 
 	TArray<FVector> vertices;
 	TArray<int32> triangles;
@@ -101,7 +104,7 @@ TArray<int32> UEllersMazeGenerator::MazeToIntArray(const TArray<FUCellArray>& ma
 	result.SetNum(length);
 
 	// for (int i = maze.Num() - 1; i >= 0; --i)
-	for (int32 i = 0; i < maze.Num(); --i)
+	for (int32 i = 0; i < maze.Num(); ++i)
 	{
 		for (int32 j = 0; j < maze[i].InnerArray.Num(); ++j)
 		{
@@ -117,7 +120,7 @@ TArray<int32> UEllersMazeGenerator::MazeToIntArray(const TArray<FUCellArray>& ma
 			int32 leftTopIndex = (i * 2 + 1) * width + j * 2;
 			int32 rightTopIndex = leftTopIndex + 1;
 			int32 leftBottomIndex = leftTopIndex - width;
-			int32 rightBottomIndex = rightBottomIndex + 1;
+			int32 rightBottomIndex = leftBottomIndex + 1;
 
 			result[leftTopIndex] = 0;
 			result[rightTopIndex] = cell->RightWall() ? 1 : 0;
@@ -183,7 +186,7 @@ void UEllersMazeGenerator::CreateBottomWall(FUCellArray& cells)
 				do
 				{
 					index = FMath::RandRange(0, group.Value.InnerArray.Num() - 1);
-				} while (!indices.Contains(index));
+				} while (indices.Contains(index));
 
 				indices.Add(index);
 			}
