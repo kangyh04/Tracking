@@ -53,6 +53,44 @@ TArray<FUCellArray> UEllersMazeGenerator::Generate(int width, int height)
 	return maze;
 }
 
+TArray<FUCellArray> UEllersMazeGenerator::GenerateMock()
+{
+	TArray<FUCellArray> maze;
+	FUCellArray row;
+
+	UCell* cell1 = NewObject<UCell>();
+	cell1->SetRightWall(true);
+	cell1->SetBottomWall(true);
+	cell1->SetGroup(0);
+	row.InnerArray.Add(cell1);
+
+	UCell* cell2 = NewObject<UCell>();
+	cell2->SetRightWall(true);
+	cell2->SetBottomWall(false);
+	cell2->SetGroup(0);
+	row.InnerArray.Add(cell2);
+
+	maze.Add(row);
+
+	FUCellArray row2;
+
+	UCell* cell3 = NewObject<UCell>();
+	cell3->SetRightWall(false);
+	cell3->SetBottomWall(true);
+	cell3->SetGroup(0);
+	row2.InnerArray.Add(cell3);
+
+	UCell* cell4 = NewObject<UCell>();
+	cell4->SetRightWall(true);
+	cell4->SetBottomWall(true);
+	cell4->SetGroup(0);
+	row2.InnerArray.Add(cell4);
+
+	maze.Add(row2);
+
+	return maze;
+}
+
 UProceduralMeshComponent* UEllersMazeGenerator::ToProceduralMesh(AActor* parent, const TArray<FUCellArray>& maze)
 {
 	auto mesh = NewObject<UProceduralMeshComponent>(parent);
@@ -67,6 +105,7 @@ UProceduralMeshComponent* UEllersMazeGenerator::ToProceduralMesh(AActor* parent,
 	int32 width = maze[0].InnerArray.Num();
 
 	int32 k = 0;
+	float cellSize = 1000.0f;
 
 	for (int32 i = 0; i < maze.Num(); ++i)
 	{
@@ -75,11 +114,17 @@ UProceduralMeshComponent* UEllersMazeGenerator::ToProceduralMesh(AActor* parent,
 			auto& cell = maze[i].InnerArray[j];
 			for (auto& vertex : cell->GetVertices())
 			{
-				vertices.Add(FVector(
+				auto size = FVector(
 					vertex.X - i,
 					vertex.Y + j,
 					vertex.Z
-				));
+				);
+				vertices.Add(size * cellSize);
+				// 				vertices.Add(FVector(
+				// 					vertex.X - i,
+				// 					vertex.Y + j,
+				// 					vertex.Z
+				// 				));
 			}
 
 			for (auto& index : cell->GetIndices())

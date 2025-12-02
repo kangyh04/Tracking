@@ -7,13 +7,13 @@
 #include "Cell.generated.h"
 
 /**
- * 
+ *
  */
 UCLASS()
 class ELLERSMAZE_API UCell : public UObject
 {
 	GENERATED_BODY()
-	
+
 public:
 	bool RightWall() { return hasRightWall; }
 	bool BottomWall() { return hasBottomWall; }
@@ -44,113 +44,111 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "EllersMaze|Cell")
 	TArray<FVector> GetVertices()
 	{
-		if (hasRightWall && hasBottomWall)
+		TArray<bool> walls = { hasRightWall, hasBottomWall, hasLeftWall, hasTopWall };
+		TArray<FVector> vertices;
+		TArray<FVector> wallVertices = GetPartVertices();
+
+		for (int i = 0; i < 4; ++i)
 		{
-			return {
-				FVector(0.45f, 0.0f, 0.5f),
-				FVector(0.45f, 1.0f, 0.5f),
-				FVector(0.45f, 0.0f, -0.45f),
-				FVector(0.45f, 1.0f, -0.45f),
-				FVector(-0.5f, 0.0f, -0.45f),
-				FVector(-0.5f, 1.0f, -0.45f),
-				FVector(-0.5f, 0.0f, -0.5f),
-				FVector(-0.5f, 1.0f, -0.5f),
-				FVector(0.5f, 0.0f, -0.5f),
-				FVector(0.5f, 1.0f, -0.5f),
-				FVector(0.5f, 0.0f, 0.5f),
-				FVector(0.5f, 1.0f, 0.5f)
-			};
+			auto hasWall = walls[i];
+			FVector scale;
+			float xDelta = 0.0f, yDelta = 0.0f;
+
+			if (hasWall)
+			{
+				if (i == 0 || i == 2)
+				{
+					scale = FVector(0.1f, 1.0f, 1.0f);
+					xDelta = (i == 0) ? 0.45f : -0.45f;
+				}
+				else
+				{
+					scale = FVector(1.0f, 0.1f, 1.0f);
+					yDelta = (i == 1) ? -0.45f : 0.45f;
+				}
+
+				FVector deltaPosition = FVector(xDelta, yDelta, 0.0f);
+
+				for (auto vertex : wallVertices)
+				{
+					FVector scaledVertex = scale * vertex;
+					FVector finalVertex = scaledVertex + deltaPosition;
+					vertices.Add(finalVertex);
+				}
+			}
 		}
-		else if (hasRightWall)
-		{
-			return {
-				FVector(0.45f, 0.0f, 0.5f),
-				FVector(0.45f, 1.0f, 0.5f),
-				FVector(0.45f, 0.0f, -0.5f),
-				FVector(0.45f, 1.0f, -0.5f),
-				FVector(0.5f, 0.0f, -0.5f),
-				FVector(0.5f, 1.0f, -0.5f),
-				FVector(0.5f, 0.0f, 0.5f),
-				FVector(0.5f, 1.0f, 0.5f),
-			};
-		}
-		else if (hasBottomWall)
-		{
-			return {
-				FVector(0.5f, 0.0f, -0.45f),
-				FVector(0.5f, 1.0f, -0.45f),
-				FVector(-0.5f, 0.0f, -0.45f),
-				FVector(-0.5f, 1.0f, -0.45f),
-				FVector(-0.5f, 0.0f, -0.5f),
-				FVector(-0.5f, 1.0f, -0.5f),
-				FVector(0.5f, 0.0f, -0.5f),
-				FVector(0.5f, 1.0f, -0.5f),
-			};
-		}
-		return {};
+
+		return vertices;
 	}
 
-	UFUNCTION(BlueprintCallable, Category="EllersMaze|Cell")
+	UFUNCTION(BlueprintCallable, Category = "EllersMaze|Cell")
 	TArray<int32> GetIndices()
 	{
-		if (hasRightWall && hasBottomWall)
+		TArray<int32> indices;
+		TArray<bool> walls = { hasRightWall, hasBottomWall, hasLeftWall, hasTopWall };
+		TArray<int32> partIndices = GetPartIndices();
+		int32 offset = 0;
+
+		for (int i = 0; i < 4; ++i)
 		{
-			return {
-				0, 1, 2,
-				2, 1, 3,
-
-				2, 3, 4,
-				4, 3, 5,
-
-				4, 5, 6,
-				6, 5, 7,
-
-				6, 7, 8,
-				8, 7, 9,
-
-				8, 9, 10,
-				10, 9, 11,
-
-				10, 11, 0,
-				0, 11, 1,
-			};
+			auto hasWall = walls[i];
+			if (hasWall)
+			{
+				for (auto index : partIndices)
+				{
+					indices.Add(index + offset);
+				}
+				offset += 8;
+			}
 		}
-		else if (hasRightWall)
-		{
-			return {
-				0, 1, 2,
-				2, 1, 3,
 
-				2, 3, 4,
-				4, 3, 5,
-
-				4, 5, 6,
-				6, 5, 7,
-
-				6, 7, 0,
-				0, 7, 1,
-			};
-		}
-		else if (hasBottomWall)
-		{
-			return {
-				0, 1, 2,
-				2, 1, 3,
-
-				2, 3, 4,
-				4, 3, 5,
-
-				4, 5, 6,
-				6, 5, 7,
-
-				6, 7, 0,
-				0, 7, 1,
-			};
-		}
-		return {};
+		return indices;
 	}
 private:
 	bool hasRightWall = false;
 	bool hasBottomWall = false;
+	bool hasTopWall = false;
+	bool hasLeftWall = false;
 	int group = -1;
+
+private:
+	TArray<FVector> GetPartVertices()
+	{
+		return {
+			FVector(-0.5f, -0.5f, 0.0f),
+			FVector(-0.5f, -0.5f, 1.0f),
+
+			FVector(0.5f, -0.5f, 0.0f),
+			FVector(0.5f, -0.5f, 1.0f),
+
+			FVector(0.5f, 0.5f, 0.0f),
+			FVector(0.5f, 0.5f, 1.0f),
+
+			FVector(-0.5f, 0.5f, 0.0f),
+			FVector(-0.5f, 0.5f, 1.0f),
+		};
+	}
+
+	TArray<int32> GetPartIndices()
+	{
+		return {
+			0, 2, 1,
+			2, 3, 1,
+
+			2, 4, 3,
+			4, 5, 3,
+
+			4, 6, 5,
+			6, 7, 5,
+
+			6, 0, 7,
+			0, 1, 7,
+
+			1, 3, 7,
+			3, 5, 7,
+
+			6, 4, 0,
+			4, 2, 0
+		};
+	}
 };

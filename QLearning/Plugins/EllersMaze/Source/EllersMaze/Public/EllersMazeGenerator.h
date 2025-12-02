@@ -22,6 +22,9 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "EllersMaze")
 	static TArray<FUCellArray> Generate(int width, int height);
 
+	UFUNCTION(BlueprintCallable, Category = "EllerMaze")
+	static TArray<FUCellArray> GenerateMock();
+
 	UFUNCTION(BlueprintCallable, Category = "EllersMaze")
 	static class UProceduralMeshComponent* ToProceduralMesh(AActor* parent, const TArray<FUCellArray>& maze);
 
