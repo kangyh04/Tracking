@@ -6,6 +6,9 @@
 #include "GameFramework/Character.h"
 #include "MyCharacter.generated.h"
 
+class USpringArmComponent;
+class UCameraComponent;
+
 UCLASS()
 class QLEARNING_API AMyCharacter : public ACharacter
 {
@@ -14,6 +17,12 @@ class QLEARNING_API AMyCharacter : public ACharacter
 public:
 	// Sets default values for this character's properties
 	AMyCharacter();
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Camera", meta=(AllowPrivateAccess = "true"))
+	USpringArmComponent* CameraBoom;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Camera", meta = (AllowPrivateAccess = "true"))
+	UCameraComponent* FollowCamera;
 
 protected:
 	// Called when the game starts or when spawned
