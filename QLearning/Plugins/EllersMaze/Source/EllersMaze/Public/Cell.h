@@ -17,6 +17,8 @@ class ELLERSMAZE_API UCell : public UObject
 public:
 	bool RightWall() { return hasRightWall; }
 	bool BottomWall() { return hasBottomWall; }
+	bool TopWall() { return hasTopWall; }
+	bool LeftWall() { return hasLeftWall; }
 	bool SetRightWall(bool hasWall)
 	{
 		hasRightWall = hasWall;
@@ -26,6 +28,16 @@ public:
 	{
 		hasBottomWall = hasWall;
 		return hasBottomWall;
+	}
+	bool SetTopWall(bool hasWall)
+	{
+		hasTopWall = hasWall;
+		return hasTopWall;
+	}
+	bool SetLeftWall(bool hasWall)
+	{
+		hasLeftWall = hasWall;
+		return hasLeftWall;
 	}
 	int Group() { return group; }
 	int SetGroup(int number)
@@ -44,7 +56,8 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "EllersMaze|Cell")
 	TArray<FVector> GetVertices()
 	{
-		TArray<bool> walls = { hasRightWall, hasBottomWall, hasLeftWall, hasTopWall };
+		// TArray<bool> walls = { hasRightWall, hasBottomWall, hasLeftWall, hasTopWall };
+		TArray<bool> walls = { hasRightWall, hasTopWall, hasLeftWall, hasBottomWall };
 		TArray<FVector> vertices;
 		TArray<FVector> wallVertices = GetPartVertices();
 
@@ -104,11 +117,16 @@ public:
 
 		return indices;
 	}
-private:
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
 	bool hasRightWall = false;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
 	bool hasBottomWall = false;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
 	bool hasTopWall = false;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
 	bool hasLeftWall = false;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
 	int group = -1;
 
 private:
@@ -132,23 +150,23 @@ private:
 	TArray<int32> GetPartIndices()
 	{
 		return {
-			0, 2, 1,
-			2, 3, 1,
+			0, 1, 2,
+			2, 1, 3,
 
-			2, 4, 3,
-			4, 5, 3,
+			2, 3, 4,
+			4, 3, 5,
 
-			4, 6, 5,
-			6, 7, 5,
+			4, 5, 6,
+			6, 5, 7,
 
-			6, 0, 7,
-			0, 1, 7,
+			6, 7, 0,
+			0, 7, 1,
 
-			1, 3, 7,
-			3, 5, 7,
+			1, 7, 3,
+			3, 7, 5,
 
-			6, 4, 0,
-			4, 2, 0
+			6, 0, 4,
+			4, 0, 2
 		};
 	}
 };

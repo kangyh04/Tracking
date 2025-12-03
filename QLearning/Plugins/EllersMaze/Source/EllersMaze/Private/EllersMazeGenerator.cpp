@@ -13,6 +13,11 @@ TArray<FUCellArray> UEllersMazeGenerator::Generate(int width, int height)
 	{
 		UCell* cell = NewObject<UCell>();
 		cell->SetGroup(i);
+		cell->SetTopWall(true);
+		if (i == 0)
+		{
+			cell->SetLeftWall(true);
+		}
 		row.InnerArray.Add(cell);
 	}
 
@@ -46,6 +51,7 @@ TArray<FUCellArray> UEllersMazeGenerator::Generate(int width, int height)
 			CreateBottomWall(row);
 			newRow = PrepareNextRow(row, y, width);
 		}
+		row.InnerArray[0]->SetLeftWall(true);
 		maze.Add(row);
 		row = newRow;
 	}
@@ -60,33 +66,84 @@ TArray<FUCellArray> UEllersMazeGenerator::GenerateMock()
 
 	UCell* cell1 = NewObject<UCell>();
 	cell1->SetRightWall(true);
-	cell1->SetBottomWall(true);
+	cell1->SetBottomWall(false);
+	cell1->SetTopWall(true);
+	cell1->SetLeftWall(true);
 	cell1->SetGroup(0);
 	row.InnerArray.Add(cell1);
 
 	UCell* cell2 = NewObject<UCell>();
 	cell2->SetRightWall(true);
 	cell2->SetBottomWall(false);
-	cell2->SetGroup(0);
+	cell2->SetTopWall(true);
+	cell2->SetLeftWall(false);
+	cell2->SetGroup(1);
 	row.InnerArray.Add(cell2);
 
-	maze.Add(row);
+	UCell* cell3 = NewObject<UCell>();
+	cell3->SetRightWall(true);
+	cell3->SetBottomWall(false);
+	cell3->SetTopWall(true);
+	cell3->SetLeftWall(false);
+	cell3->SetGroup(2);
+	row.InnerArray.Add(cell3);
 
 	FUCellArray row2;
 
-	UCell* cell3 = NewObject<UCell>();
-	cell3->SetRightWall(false);
-	cell3->SetBottomWall(true);
-	cell3->SetGroup(0);
-	row2.InnerArray.Add(cell3);
-
 	UCell* cell4 = NewObject<UCell>();
 	cell4->SetRightWall(true);
-	cell4->SetBottomWall(true);
+	cell4->SetBottomWall(false);
+	cell4->SetTopWall(false);
+	cell4->SetLeftWall(true);
 	cell4->SetGroup(0);
 	row2.InnerArray.Add(cell4);
 
+	UCell* cell5 = NewObject<UCell>();
+	cell5->SetRightWall(true);
+	cell5->SetBottomWall(false);
+	cell5->SetTopWall(false);
+	cell5->SetLeftWall(false);
+	cell5->SetGroup(1);
+	row2.InnerArray.Add(cell5);
+
+	UCell* cell6 = NewObject<UCell>();
+	cell6->SetRightWall(true);
+	cell6->SetBottomWall(false);
+	cell6->SetTopWall(false);
+	cell6->SetLeftWall(false);
+	cell6->SetGroup(2);
+	row2.InnerArray.Add(cell6);
+
+	FUCellArray row3;
+
+	UCell* cell7 = NewObject<UCell>();
+	cell7->SetRightWall(true);
+	cell7->SetBottomWall(true);
+	cell7->SetTopWall(false);
+	cell7->SetLeftWall(true);
+	cell7->SetGroup(0);
+	row3.InnerArray.Add(cell7);
+
+	UCell* cell8 = NewObject<UCell>();
+	cell8->SetRightWall(true);
+	cell8->SetBottomWall(true);
+	cell8->SetTopWall(false);
+	cell8->SetLeftWall(false);
+	cell8->SetGroup(1);
+	row3.InnerArray.Add(cell8);
+
+	UCell* cell9 = NewObject<UCell>();
+	cell9->SetRightWall(true);
+	cell9->SetBottomWall(true);
+	cell9->SetTopWall(false);
+	cell9->SetLeftWall(false);
+	cell9->SetGroup(2);
+	row3.InnerArray.Add(cell9);
+
+
+	maze.Add(row);
 	maze.Add(row2);
+	maze.Add(row3);
 
 	return maze;
 }
@@ -114,12 +171,12 @@ UProceduralMeshComponent* UEllersMazeGenerator::ToProceduralMesh(AActor* parent,
 			auto& cell = maze[i].InnerArray[j];
 			for (auto& vertex : cell->GetVertices())
 			{
-				auto size = FVector(
-					vertex.X - i,
-					vertex.Y + j,
+				auto position = FVector(
+					vertex.X + j,
+					vertex.Y + i,
 					vertex.Z
 				);
-				vertices.Add(size * cellSize);
+				vertices.Add(position * cellSize);
 				// 				vertices.Add(FVector(
 				// 					vertex.X - i,
 				// 					vertex.Y + j,
@@ -253,6 +310,8 @@ FUCellArray UEllersMazeGenerator::PrepareNextRow(FUCellArray& cells, int rowNumb
 	{
 		auto cell = cells.InnerArray[i];
 		auto belowCell = cell->Duplicate();
+		belowCell->SetTopWall(false);
+		belowCell->SetLeftWall(false);
 		belowCell->SetRightWall(false);
 		if (belowCell->BottomWall())
 		{
