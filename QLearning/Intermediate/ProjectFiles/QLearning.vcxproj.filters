@@ -180,6 +180,12 @@
     <Filter Include="Source\QLearning">
       <UniqueIdentifier>{849D421F-3B3B-3288-8287-F7E5F17F82D0}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\QLearning\MyCharacter.cpp">
+      <Filter>Source\QLearning</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\QLearning\MyCharacter.h">
+      <Filter>Source\QLearning</Filter>
+    </ClInclude>
     <None Include="..\..\Source\QLearning\QLearning.Build.cs">
       <Filter>Source\QLearning</Filter>
     </None>
