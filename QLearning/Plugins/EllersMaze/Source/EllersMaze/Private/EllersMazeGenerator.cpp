@@ -199,9 +199,15 @@ UProceduralMeshComponent* UEllersMazeGenerator::ToProceduralMesh(AActor* parent,
 
 TArray<int32> UEllersMazeGenerator::MazeToIntArray(const TArray<FUCellArray>& maze)
 {
-	int32 width = maze[0].InnerArray.Num() * 2;
-	// NOTE : each cell is represented by 2x2 integers
-	int32 length = maze.Num() * 2 * maze[0].InnerArray.Num() * 2;
+	// int32 width = maze[0].InnerArray.Num() * 2;
+	int32 width = maze[0].InnerArray.Num() * 3;
+	// NOTE : each cell is represented by 3x3 integers
+	// Left Top    | Top               | Right Top
+	//-----------------------------------
+	// Left        |Actual Movable Area|   Right
+	//-----------------------------------
+	// Left Bottom | Bottom            | Right Bottom
+	int32 length = maze.Num() * 3 * width;
 	TArray<int32> result;
 	result.SetNum(length);
 
@@ -214,20 +220,35 @@ TArray<int32> UEllersMazeGenerator::MazeToIntArray(const TArray<FUCellArray>& ma
 
 			int32 cellValue = 0;
 
-			// NOTE : a cell is configured by 4 part
-			// left top : 0 (always 0)
+			// NOTE : a cell is configured by 9 part
+			// left top : 0 or 1 (if there is a left wall or a top wall)
+			// top : 0 or 1 (if there is a top wall)
 			// right top : 0 or 1 (if there is a right wall)
+			// left : 0 or 1 (if there is a left wall)
+			// center : always 0 (movable area)
+			// right : 0 or 1 (if there is a right wall)
 			// left bottom : 0 or 1 (if there is a bottom wall)
+			// bottom : 0 or 1 (if there is a bottom wall)
 			// right bottom : 0 or 1 (if there is a right wall or a bottom wall)
-			int32 leftTopIndex = (i * 2 + 1) * width + j * 2;
-			int32 rightTopIndex = leftTopIndex + 1;
-			int32 leftBottomIndex = leftTopIndex - width;
-			int32 rightBottomIndex = leftBottomIndex + 1;
+			int32 leftTopIndex = (i * 3 + 2) * width + j * 3;
+			int32 topIndex = leftTopIndex + 1;
+			int32 rightTopIndex = topIndex + 1;
+			int32 leftIndex = leftTopIndex - width;
+			int32 centerIndex = leftIndex + 1;
+			int32 rightIndex = centerIndex + 1;
+			int32 leftBottomIndex = leftTopIndex - width * 2;
+			int32 bottomIndex = leftBottomIndex + 1;
+			int32 rightBottomIndex = bottomIndex + 1;
 
-			result[leftTopIndex] = 0;
-			result[rightTopIndex] = cell->RightWall() ? 1 : 0;
-			result[leftBottomIndex] = cell->BottomWall() ? 1 : 0;
-			result[rightBottomIndex] = result[rightTopIndex] | result[leftBottomIndex];
+			result[leftTopIndex] = cell->LeftWall() | cell->TopWall();
+			result[topIndex] = cell->TopWall();
+			result[rightTopIndex] = cell->TopWall() | cell->RightWall();
+			result[leftIndex] = cell->LeftWall();
+			result[centerIndex] = 0;
+			result[rightIndex] = cell->RightWall();
+			result[leftBottomIndex] = cell->LeftWall() | cell->BottomWall();
+			result[bottomIndex] = cell->BottomWall();
+			result[rightBottomIndex] = cell->BottomWall() | cell->RightWall();
 		}
 	}
 
