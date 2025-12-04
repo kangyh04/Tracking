@@ -19,6 +19,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 // ********** Begin Class UAStarAlgorithm **********************************************************
 #define FID_Studying_Tracking_QLearning_Plugins_AStar_Source_AStar_Public_AStarAlgorithm_h_37_RPC_WRAPPERS_NO_PURE_DECLS \
 	DECLARE_FUNCTION(execCalculateManhattanDistance); \
+	DECLARE_FUNCTION(execFindMockPath); \
 	DECLARE_FUNCTION(execFindPath);
 
 

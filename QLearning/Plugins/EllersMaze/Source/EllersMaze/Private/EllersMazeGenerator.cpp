@@ -174,7 +174,7 @@ UProceduralMeshComponent* UEllersMazeGenerator::ToProceduralMesh(AActor* parent,
 				auto position = FVector(
 					vertex.X + j,
 					vertex.Y + i,
-					vertex.Z
+					vertex.Z * 0.5f
 				);
 				vertices.Add(position * cellSize);
 				// 				vertices.Add(FVector(
@@ -210,8 +210,6 @@ TArray<int32> UEllersMazeGenerator::MazeToIntArray(const TArray<FUCellArray>& ma
 	int32 length = maze.Num() * 3 * width;
 	TArray<int32> result;
 	result.SetNum(length);
-
-	FString debug;
 
 	// for (int i = maze.Num() - 1; i >= 0; --i)
 	for (int32 i = 0; i < maze.Num(); ++i)
@@ -255,13 +253,6 @@ TArray<int32> UEllersMazeGenerator::MazeToIntArray(const TArray<FUCellArray>& ma
 			result[rightBottomIndex] = cell->BottomWall() | cell->RightWall();
 		}
 	}
-
-	for(auto val : result)
-	{
-		debug += FString::FromInt(val) + TEXT(", ");
-	}
-
-	UE_LOG(LogTemp, Warning, TEXT("Maze as Int Array: %s"), *debug);
 
 	return result;
 }

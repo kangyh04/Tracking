@@ -42,6 +42,9 @@ public:
 	static TArray<int32> FindPath(const TArray<int32> grid, int32 width, FIntPoint startPos, FIntPoint destPos);
 
 	UFUNCTION(BlueprintCallable, Category = "AStar")
+	static TArray<int32> FindMockPath();
+
+	UFUNCTION(BlueprintCallable, Category = "AStar")
 	static int32 CalculateManhattanDistance(FIntPoint pos1, FIntPoint pos2)
 	{
 		return FMath::Abs(pos2.X - pos1.X) + FMath::Abs(pos2.Y - pos1.Y);

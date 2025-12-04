@@ -3,7 +3,6 @@
 
 #include "AStarAlgorithm.h"
 
-// TArray<int> UAStarAlgorithm::FindPath(const TArray<int> grid, int width, int startX, int startY, int destX, int destY)
 TArray<int32> UAStarAlgorithm::FindPath(const TArray<int32> grid, int32 width, FIntPoint startPos, FIntPoint destPos)
 {
 	TMap<FIntPoint, FAStarNode> closedNodes;
@@ -103,5 +102,30 @@ TArray<int32> UAStarAlgorithm::FindPath(const TArray<int32> grid, int32 width, F
 	result[startY * width + startX] = static_cast<int8>(NodeState::Start);
 	result[destY * width + destX] = static_cast<int8>(NodeState::Goal);
 
+	return result;
+}
+
+TArray<int32> UAStarAlgorithm::FindMockPath()
+{
+	FIntPoint startPos(1, 5);
+	FIntPoint destPos(5, 1);
+
+	TArray<int32> mockArea =
+	{
+		0,0,0,0,0,0,0,
+		0,0,0,0,0,0,0,
+		0,0,0,0,0,0,0,
+		0,1,1,1,1,0,0,
+		0,0,0,0,0,0,0,
+		0,0,0,0,0,0,0,
+		0,0,0,0,0,0,0,
+	};
+	auto result = FindPath(mockArea, 7, startPos, destPos);
+	FString output;
+	for (auto value : result)
+	{
+		output.Append(FString::FromInt(value) + TEXT(","));
+	}
+	UE_LOG(LogTemp, Warning, TEXT("Mock Path Result: %s"), *output);
 	return result;
 }
