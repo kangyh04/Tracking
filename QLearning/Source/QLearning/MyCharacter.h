@@ -8,6 +8,7 @@
 
 class USpringArmComponent;
 class UCameraComponent;
+class UQLearningAlgorithm;
 
 UCLASS()
 class QLEARNING_API AMyCharacter : public ACharacter
@@ -23,6 +24,12 @@ public:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Camera", meta = (AllowPrivateAccess = "true"))
 	UCameraComponent* FollowCamera;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "QLearning")
+	UQLearningAlgorithm* QLearningAlgorithm;
+
+	UFUNCTION(BlueprintCallable, Category = "QLearning")
+	void PerformQLearningStep(TArray<int32> area, int32 width);
 
 protected:
 	// Called when the game starts or when spawned

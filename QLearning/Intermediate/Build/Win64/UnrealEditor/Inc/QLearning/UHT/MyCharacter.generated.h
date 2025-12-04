@@ -17,9 +17,13 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 // ********** Begin Class AMyCharacter *************************************************************
+#define FID_Studying_Tracking_QLearning_Source_QLearning_MyCharacter_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execPerformQLearningStep);
+
+
 QLEARNING_API UClass* Z_Construct_UClass_AMyCharacter_NoRegister();
 
-#define FID_Studying_Tracking_QLearning_Source_QLearning_MyCharacter_h_15_INCLASS_NO_PURE_DECLS \
+#define FID_Studying_Tracking_QLearning_Source_QLearning_MyCharacter_h_16_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAMyCharacter(); \
 	friend struct Z_Construct_UClass_AMyCharacter_Statics; \
@@ -30,7 +34,7 @@ public: \
 	DECLARE_SERIALIZER(AMyCharacter)
 
 
-#define FID_Studying_Tracking_QLearning_Source_QLearning_MyCharacter_h_15_ENHANCED_CONSTRUCTORS \
+#define FID_Studying_Tracking_QLearning_Source_QLearning_MyCharacter_h_16_ENHANCED_CONSTRUCTORS \
 	/** Deleted move- and copy-constructors, should never be used */ \
 	AMyCharacter(AMyCharacter&&) = delete; \
 	AMyCharacter(const AMyCharacter&) = delete; \
@@ -40,12 +44,13 @@ public: \
 	NO_API virtual ~AMyCharacter();
 
 
-#define FID_Studying_Tracking_QLearning_Source_QLearning_MyCharacter_h_12_PROLOG
-#define FID_Studying_Tracking_QLearning_Source_QLearning_MyCharacter_h_15_GENERATED_BODY \
+#define FID_Studying_Tracking_QLearning_Source_QLearning_MyCharacter_h_13_PROLOG
+#define FID_Studying_Tracking_QLearning_Source_QLearning_MyCharacter_h_16_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Studying_Tracking_QLearning_Source_QLearning_MyCharacter_h_15_INCLASS_NO_PURE_DECLS \
-	FID_Studying_Tracking_QLearning_Source_QLearning_MyCharacter_h_15_ENHANCED_CONSTRUCTORS \
+	FID_Studying_Tracking_QLearning_Source_QLearning_MyCharacter_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_Studying_Tracking_QLearning_Source_QLearning_MyCharacter_h_16_INCLASS_NO_PURE_DECLS \
+	FID_Studying_Tracking_QLearning_Source_QLearning_MyCharacter_h_16_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

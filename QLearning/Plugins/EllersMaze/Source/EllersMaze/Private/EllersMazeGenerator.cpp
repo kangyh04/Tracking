@@ -211,12 +211,16 @@ TArray<int32> UEllersMazeGenerator::MazeToIntArray(const TArray<FUCellArray>& ma
 	TArray<int32> result;
 	result.SetNum(length);
 
+	FString debug;
+
 	// for (int i = maze.Num() - 1; i >= 0; --i)
 	for (int32 i = 0; i < maze.Num(); ++i)
 	{
 		for (int32 j = 0; j < maze[i].InnerArray.Num(); ++j)
 		{
-			auto& cell = maze[i].InnerArray[j];
+			int32 rowIndex = maze.Num() - 1 - i;
+			auto& targetRow = maze[rowIndex];
+			auto& cell = targetRow.InnerArray[j];
 
 			int32 cellValue = 0;
 
@@ -251,6 +255,13 @@ TArray<int32> UEllersMazeGenerator::MazeToIntArray(const TArray<FUCellArray>& ma
 			result[rightBottomIndex] = cell->BottomWall() | cell->RightWall();
 		}
 	}
+
+	for(auto val : result)
+	{
+		debug += FString::FromInt(val) + TEXT(", ");
+	}
+
+	UE_LOG(LogTemp, Warning, TEXT("Maze as Int Array: %s"), *debug);
 
 	return result;
 }
