@@ -51,8 +51,8 @@ TArray<int32> UAStarAlgorithm::FindPath(const TArray<int32> grid, int32 width, F
 			int neighborX = currentNode.X + offset.Key;
 			int neighborY = currentNode.Y + offset.Value;
 
-			if (0 < neighborX && neighborX <= width &&
-				0 < neighborY && neighborY <= height)
+			if (0 <= neighborX && neighborX < width &&
+				0 <= neighborY && neighborY < height)
 			{
 				if (result[neighborY * width + neighborX] == static_cast<int8>(NodeState::Hide))
 				{

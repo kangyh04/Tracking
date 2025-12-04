@@ -39,6 +39,8 @@ AMyCharacter::AMyCharacter()
 	FollowCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("FollowCamera"));
 	FollowCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName);
 	FollowCamera->bUsePawnControlRotation = false;
+
+	QLearningAlgorithm = CreateDefaultSubobject<UQLearningAlgorithm>(TEXT("QLearningAlgorithm"));
 }
 
 void AMyCharacter::PerformQLearningStep(TArray<int32> area, int32 width)
@@ -49,9 +51,6 @@ void AMyCharacter::PerformQLearningStep(TArray<int32> area, int32 width)
 void AMyCharacter::BeginPlay()
 {
 	Super::BeginPlay();
-
-	QLearningAlgorithm = NewObject<UQLearningAlgorithm>();
-
 }
 
 // Called every frame

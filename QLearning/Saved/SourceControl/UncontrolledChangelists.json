@@ -5,9 +5,7 @@
 			"guid": "00000000000000000000000000000000",
 			"description": "Default Uncontrolled Changelist",
 			"files": [
-				"D:/Studying/Tracking/QLearning/Content/Developers/Younghui/BP_MazeGenerator.uasset",
-				"D:/Studying/Tracking/QLearning/Content/Developers/Younghui/BP_MyCharacter.uasset",
-				"D:/Studying/Tracking/QLearning/Content/Developers/Younghui/BP_MyGameMode.uasset"
+				"D:/Studying/Tracking/QLearning/Content/Developers/Younghui/BP_MyCharacter.uasset"
 			]
 		}
 	]

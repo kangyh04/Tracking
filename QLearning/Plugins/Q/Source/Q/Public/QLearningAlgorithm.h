@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "QLearningData.h"
+#include "Components/ActorComponent.h"
 // #include "Containers/Map.h"
 #include "QLearningAlgorithm.generated.h"
 
@@ -12,7 +13,8 @@
  *
  */
 UCLASS(Blueprintable, BlueprintType)
-class Q_API UQLearningAlgorithm : public UObject
+// class Q_API UQLearningAlgorithm : public UObject
+class Q_API UQLearningAlgorithm : public UActorComponent
 {
 	GENERATED_BODY()
 
@@ -48,7 +50,7 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "QLearning")
 	TArray<int32> Maze;
 
-	UPROPERTY(Visibleanywhere, BlueprintReadOnly, Category = "QLearning")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "QLearning")
 	int32 Width;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "QLearning")

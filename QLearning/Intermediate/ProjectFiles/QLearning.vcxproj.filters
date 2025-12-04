@@ -201,5 +201,11 @@
     <ClInclude Include="..\..\Source\QLearning\QLearning.h">
       <Filter>Source\QLearning</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\QLearning\TestActorComponent.cpp">
+      <Filter>Source\QLearning</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\QLearning\TestActorComponent.h">
+      <Filter>Source\QLearning</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
