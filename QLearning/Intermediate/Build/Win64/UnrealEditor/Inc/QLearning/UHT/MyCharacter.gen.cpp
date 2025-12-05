@@ -6,12 +6,14 @@
 
 #include "UObject/GeneratedCppIncludes.h"
 #include "QLearning/MyCharacter.h"
+#include "FUCellArray.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 void EmptyLinkFunctionForGeneratedCodeMyCharacter() {}
 
 // ********** Begin Cross Module References ********************************************************
+ELLERSMAZE_API UScriptStruct* Z_Construct_UScriptStruct_FUCellArray();
 ENGINE_API UClass* Z_Construct_UClass_ACharacter();
 ENGINE_API UClass* Z_Construct_UClass_UCameraComponent_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_USpringArmComponent_NoRegister();
@@ -21,10 +23,68 @@ QLEARNING_API UClass* Z_Construct_UClass_AMyCharacter_NoRegister();
 UPackage* Z_Construct_UPackage__Script_QLearning();
 // ********** End Cross Module References **********************************************************
 
-// ********** Begin Class AMyCharacter Function PerformQLearningStep *******************************
-struct Z_Construct_UFunction_AMyCharacter_PerformQLearningStep_Statics
+// ********** Begin Class AMyCharacter Function DesideStartAndDest *********************************
+struct Z_Construct_UFunction_AMyCharacter_DesideStartAndDest_Statics
 {
-	struct MyCharacter_eventPerformQLearningStep_Parms
+	struct MyCharacter_eventDesideStartAndDest_Parms
+	{
+		TArray<FUCellArray> map;
+		bool ReturnValue;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "QLearning" },
+		{ "ModuleRelativePath", "MyCharacter.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_map_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FStructPropertyParams NewProp_map_Inner;
+	static const UECodeGen_Private::FArrayPropertyParams NewProp_map;
+	static void NewProp_ReturnValue_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_ReturnValue;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AMyCharacter_DesideStartAndDest_Statics::NewProp_map_Inner = { "map", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FUCellArray, METADATA_PARAMS(0, nullptr) }; // 335216256
+const UECodeGen_Private::FArrayPropertyParams Z_Construct_UFunction_AMyCharacter_DesideStartAndDest_Statics::NewProp_map = { "map", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(MyCharacter_eventDesideStartAndDest_Parms, map), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_map_MetaData), NewProp_map_MetaData) }; // 335216256
+void Z_Construct_UFunction_AMyCharacter_DesideStartAndDest_Statics::NewProp_ReturnValue_SetBit(void* Obj)
+{
+	((MyCharacter_eventDesideStartAndDest_Parms*)Obj)->ReturnValue = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_AMyCharacter_DesideStartAndDest_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(MyCharacter_eventDesideStartAndDest_Parms), &Z_Construct_UFunction_AMyCharacter_DesideStartAndDest_Statics::NewProp_ReturnValue_SetBit, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AMyCharacter_DesideStartAndDest_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMyCharacter_DesideStartAndDest_Statics::NewProp_map_Inner,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMyCharacter_DesideStartAndDest_Statics::NewProp_map,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMyCharacter_DesideStartAndDest_Statics::NewProp_ReturnValue,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AMyCharacter_DesideStartAndDest_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMyCharacter_DesideStartAndDest_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_AMyCharacter, nullptr, "DesideStartAndDest", Z_Construct_UFunction_AMyCharacter_DesideStartAndDest_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AMyCharacter_DesideStartAndDest_Statics::PropPointers), sizeof(Z_Construct_UFunction_AMyCharacter_DesideStartAndDest_Statics::MyCharacter_eventDesideStartAndDest_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04420401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AMyCharacter_DesideStartAndDest_Statics::Function_MetaDataParams), Z_Construct_UFunction_AMyCharacter_DesideStartAndDest_Statics::Function_MetaDataParams)},  };
+static_assert(sizeof(Z_Construct_UFunction_AMyCharacter_DesideStartAndDest_Statics::MyCharacter_eventDesideStartAndDest_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_AMyCharacter_DesideStartAndDest()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMyCharacter_DesideStartAndDest_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AMyCharacter::execDesideStartAndDest)
+{
+	P_GET_TARRAY_REF(FUCellArray,Z_Param_Out_map);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	*(bool*)Z_Param__Result=P_THIS->DesideStartAndDest(Z_Param_Out_map);
+	P_NATIVE_END;
+}
+// ********** End Class AMyCharacter Function DesideStartAndDest ***********************************
+
+// ********** Begin Class AMyCharacter Function PrepareQLearning ***********************************
+struct Z_Construct_UFunction_AMyCharacter_PrepareQLearning_Statics
+{
+	struct MyCharacter_eventPrepareQLearning_Parms
 	{
 		TArray<int32> area;
 		int32 width;
@@ -41,43 +101,44 @@ struct Z_Construct_UFunction_AMyCharacter_PerformQLearningStep_Statics
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static const UECodeGen_Private::FFunctionParams FuncParams;
 };
-const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_AMyCharacter_PerformQLearningStep_Statics::NewProp_area_Inner = { "area", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, METADATA_PARAMS(0, nullptr) };
-const UECodeGen_Private::FArrayPropertyParams Z_Construct_UFunction_AMyCharacter_PerformQLearningStep_Statics::NewProp_area = { "area", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(MyCharacter_eventPerformQLearningStep_Parms, area), EArrayPropertyFlags::None, METADATA_PARAMS(0, nullptr) };
-const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_AMyCharacter_PerformQLearningStep_Statics::NewProp_width = { "width", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(MyCharacter_eventPerformQLearningStep_Parms, width), METADATA_PARAMS(0, nullptr) };
-const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AMyCharacter_PerformQLearningStep_Statics::PropPointers[] = {
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMyCharacter_PerformQLearningStep_Statics::NewProp_area_Inner,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMyCharacter_PerformQLearningStep_Statics::NewProp_area,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMyCharacter_PerformQLearningStep_Statics::NewProp_width,
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_AMyCharacter_PrepareQLearning_Statics::NewProp_area_Inner = { "area", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FArrayPropertyParams Z_Construct_UFunction_AMyCharacter_PrepareQLearning_Statics::NewProp_area = { "area", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(MyCharacter_eventPrepareQLearning_Parms, area), EArrayPropertyFlags::None, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_AMyCharacter_PrepareQLearning_Statics::NewProp_width = { "width", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(MyCharacter_eventPrepareQLearning_Parms, width), METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AMyCharacter_PrepareQLearning_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMyCharacter_PrepareQLearning_Statics::NewProp_area_Inner,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMyCharacter_PrepareQLearning_Statics::NewProp_area,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMyCharacter_PrepareQLearning_Statics::NewProp_width,
 };
-static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AMyCharacter_PerformQLearningStep_Statics::PropPointers) < 2048);
-const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMyCharacter_PerformQLearningStep_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_AMyCharacter, nullptr, "PerformQLearningStep", Z_Construct_UFunction_AMyCharacter_PerformQLearningStep_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AMyCharacter_PerformQLearningStep_Statics::PropPointers), sizeof(Z_Construct_UFunction_AMyCharacter_PerformQLearningStep_Statics::MyCharacter_eventPerformQLearningStep_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AMyCharacter_PerformQLearningStep_Statics::Function_MetaDataParams), Z_Construct_UFunction_AMyCharacter_PerformQLearningStep_Statics::Function_MetaDataParams)},  };
-static_assert(sizeof(Z_Construct_UFunction_AMyCharacter_PerformQLearningStep_Statics::MyCharacter_eventPerformQLearningStep_Parms) < MAX_uint16);
-UFunction* Z_Construct_UFunction_AMyCharacter_PerformQLearningStep()
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AMyCharacter_PrepareQLearning_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMyCharacter_PrepareQLearning_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_AMyCharacter, nullptr, "PrepareQLearning", Z_Construct_UFunction_AMyCharacter_PrepareQLearning_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AMyCharacter_PrepareQLearning_Statics::PropPointers), sizeof(Z_Construct_UFunction_AMyCharacter_PrepareQLearning_Statics::MyCharacter_eventPrepareQLearning_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AMyCharacter_PrepareQLearning_Statics::Function_MetaDataParams), Z_Construct_UFunction_AMyCharacter_PrepareQLearning_Statics::Function_MetaDataParams)},  };
+static_assert(sizeof(Z_Construct_UFunction_AMyCharacter_PrepareQLearning_Statics::MyCharacter_eventPrepareQLearning_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_AMyCharacter_PrepareQLearning()
 {
 	static UFunction* ReturnFunction = nullptr;
 	if (!ReturnFunction)
 	{
-		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMyCharacter_PerformQLearningStep_Statics::FuncParams);
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMyCharacter_PrepareQLearning_Statics::FuncParams);
 	}
 	return ReturnFunction;
 }
-DEFINE_FUNCTION(AMyCharacter::execPerformQLearningStep)
+DEFINE_FUNCTION(AMyCharacter::execPrepareQLearning)
 {
 	P_GET_TARRAY(int32,Z_Param_area);
 	P_GET_PROPERTY(FIntProperty,Z_Param_width);
 	P_FINISH;
 	P_NATIVE_BEGIN;
-	P_THIS->PerformQLearningStep(Z_Param_area,Z_Param_width);
+	P_THIS->PrepareQLearning(Z_Param_area,Z_Param_width);
 	P_NATIVE_END;
 }
-// ********** End Class AMyCharacter Function PerformQLearningStep *********************************
+// ********** End Class AMyCharacter Function PrepareQLearning *************************************
 
 // ********** Begin Class AMyCharacter *************************************************************
 void AMyCharacter::StaticRegisterNativesAMyCharacter()
 {
 	UClass* Class = AMyCharacter::StaticClass();
 	static const FNameNativePtrPair Funcs[] = {
-		{ "PerformQLearningStep", &AMyCharacter::execPerformQLearningStep },
+		{ "DesideStartAndDest", &AMyCharacter::execDesideStartAndDest },
+		{ "PrepareQLearning", &AMyCharacter::execPrepareQLearning },
 	};
 	FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 }
@@ -142,7 +203,8 @@ struct Z_Construct_UClass_AMyCharacter_Statics
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
-		{ &Z_Construct_UFunction_AMyCharacter_PerformQLearningStep, "PerformQLearningStep" }, // 3006518412
+		{ &Z_Construct_UFunction_AMyCharacter_DesideStartAndDest, "DesideStartAndDest" }, // 1201611176
+		{ &Z_Construct_UFunction_AMyCharacter_PrepareQLearning, "PrepareQLearning" }, // 1481970578
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -195,10 +257,10 @@ AMyCharacter::~AMyCharacter() {}
 struct Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Source_QLearning_MyCharacter_h__Script_QLearning_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AMyCharacter, AMyCharacter::StaticClass, TEXT("AMyCharacter"), &Z_Registration_Info_UClass_AMyCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMyCharacter), 3206029867U) },
+		{ Z_Construct_UClass_AMyCharacter, AMyCharacter::StaticClass, TEXT("AMyCharacter"), &Z_Registration_Info_UClass_AMyCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMyCharacter), 4215590962U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Source_QLearning_MyCharacter_h__Script_QLearning_1891368727(TEXT("/Script/QLearning"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Source_QLearning_MyCharacter_h__Script_QLearning_434620484(TEXT("/Script/QLearning"),
 	Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Source_QLearning_MyCharacter_h__Script_QLearning_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Source_QLearning_MyCharacter_h__Script_QLearning_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

@@ -8,6 +8,8 @@
 #include "Camera/CameraComponent.h"
 #include "QLearningAlgorithm.h"
 #include "AStarAlgorithm.h"
+#include "FUCellArray.h"
+#include "Cell.h"
 
 // Sets default values
 AMyCharacter::AMyCharacter()
@@ -43,8 +45,68 @@ AMyCharacter::AMyCharacter()
 	QLearningAlgorithm = CreateDefaultSubobject<UQLearningAlgorithm>(TEXT("QLearningAlgorithm"));
 }
 
-void AMyCharacter::PerformQLearningStep(TArray<int32> area, int32 width)
+void AMyCharacter::PrepareQLearning(TArray<int32> area, int32 width)
 {
+	QLearningAlgorithm->Initialize(width, area, StartPos, DestPos);
+}
+
+bool AMyCharacter::DesideStartAndDest(const TArray<FUCellArray>& maze)
+{
+	bool bSuccess = false;
+	// NOTE : Find most frequent cell ID in the maze
+	TMap<int32, int32> cellIdCounts;
+	for (auto& row : maze)
+	{
+		for (auto& cell : row.InnerArray)
+		{
+			cellIdCounts.FindOrAdd(cell->Group()) += 1;
+		}
+	}
+
+	int32 maxCount = 0;
+	int32 mostFrequentCellId = -1;
+
+	for (auto& [cellId, count] : cellIdCounts)
+	{
+		if (count > maxCount)
+		{
+			maxCount = count;
+			mostFrequentCellId = cellId;
+		}
+	}
+
+	// NOTE : Pick start and dest positions randomly from the most frequent cell ID
+	TArray<UCell*> candidateCells;
+	for (auto& row : maze)
+	{
+		for (auto& cell : row.InnerArray)
+		{
+			if (cell->Group() == mostFrequentCellId)
+			{
+				candidateCells.Add(cell);
+			}
+		}
+	}
+
+	if (candidateCells.Num() >= 2)
+	{
+		int32 startIndex = FMath::RandRange(0, candidateCells.Num() - 1);
+		int32 destIndex;
+		do
+		{
+			destIndex = FMath::RandRange(0, candidateCells.Num() - 1);
+		} while (destIndex == startIndex);
+		UCell* startCell = candidateCells[startIndex];
+		UCell* destCell = candidateCells[destIndex];
+		StartPos = startCell->Position();
+		DestPos = destCell->Position();
+		bSuccess = true;
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Not enough candidate cells to select start and dest positions."));
+	}
+	return bSuccess;
 }
 
 // Called when the game starts or when spawned

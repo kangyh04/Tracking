@@ -19,6 +19,7 @@ public:
 	bool BottomWall() { return hasBottomWall; }
 	bool TopWall() { return hasTopWall; }
 	bool LeftWall() { return hasLeftWall; }
+	FIntPoint Position() { return position; }
 	bool SetRightWall(bool hasWall)
 	{
 		hasRightWall = hasWall;
@@ -44,6 +45,11 @@ public:
 	{
 		group = number;
 		return group;
+	}
+	FIntPoint SetPosition(FIntPoint pos)
+	{
+		position = pos;
+		return position;
 	}
 	UCell* Duplicate()
 	{
@@ -128,6 +134,8 @@ public:
 	bool hasLeftWall = false;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
 	int group = -1;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateACCess = "true"))
+	FIntPoint position = FIntPoint(-1, -1);
 
 private:
 	TArray<FVector> GetPartVertices()

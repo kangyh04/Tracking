@@ -14,8 +14,8 @@ struct FUCellArray
 {
 	GENERATED_BODY()
 public:
-	FUCellArray();
-	~FUCellArray();
+// 	FUCellArray();
+// 	~FUCellArray();
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Cell")
 	TArray<UCell*> InnerArray;

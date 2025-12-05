@@ -39,7 +39,13 @@ struct Z_Construct_UScriptStruct_FUCellArray_Statics
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_InnerArray_MetaData[] = {
 		{ "Category", "Cell" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// \x09""FUCellArray();\n// \x09~FUCellArray();\n" },
+#endif
 		{ "ModuleRelativePath", "Public/FUCellArray.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "FUCellArray();\n~FUCellArray();" },
+#endif
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_InnerArray_Inner;
@@ -85,10 +91,10 @@ UScriptStruct* Z_Construct_UScriptStruct_FUCellArray()
 struct Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_EllersMaze_Source_EllersMaze_Public_FUCellArray_h__Script_EllersMaze_Statics
 {
 	static constexpr FStructRegisterCompiledInInfo ScriptStructInfo[] = {
-		{ FUCellArray::StaticStruct, Z_Construct_UScriptStruct_FUCellArray_Statics::NewStructOps, TEXT("UCellArray"), &Z_Registration_Info_UScriptStruct_FUCellArray, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FUCellArray), 2368078592U) },
+		{ FUCellArray::StaticStruct, Z_Construct_UScriptStruct_FUCellArray_Statics::NewStructOps, TEXT("UCellArray"), &Z_Registration_Info_UScriptStruct_FUCellArray, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FUCellArray), 335216256U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_EllersMaze_Source_EllersMaze_Public_FUCellArray_h__Script_EllersMaze_1782437437(TEXT("/Script/EllersMaze"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_EllersMaze_Source_EllersMaze_Public_FUCellArray_h__Script_EllersMaze_1488767690(TEXT("/Script/EllersMaze"),
 	nullptr, 0,
 	Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_EllersMaze_Source_EllersMaze_Public_FUCellArray_h__Script_EllersMaze_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_EllersMaze_Source_EllersMaze_Public_FUCellArray_h__Script_EllersMaze_Statics::ScriptStructInfo),
 	nullptr, 0);

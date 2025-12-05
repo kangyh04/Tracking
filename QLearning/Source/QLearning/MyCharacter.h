@@ -4,11 +4,14 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+
 #include "MyCharacter.generated.h"
 
 class USpringArmComponent;
 class UCameraComponent;
 class UQLearningAlgorithm;
+
+struct FUCellArray;
 
 UCLASS()
 class QLEARNING_API AMyCharacter : public ACharacter
@@ -19,7 +22,7 @@ public:
 	// Sets default values for this character's properties
 	AMyCharacter();
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Camera", meta=(AllowPrivateAccess = "true"))
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Camera", meta = (AllowPrivateAccess = "true"))
 	USpringArmComponent* CameraBoom;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Camera", meta = (AllowPrivateAccess = "true"))
@@ -29,17 +32,22 @@ public:
 	UQLearningAlgorithm* QLearningAlgorithm;
 
 	UFUNCTION(BlueprintCallable, Category = "QLearning")
-	void PerformQLearningStep(TArray<int32> area, int32 width);
+	void PrepareQLearning(TArray<int32> area, int32 width);
+
+	UFUNCTION(BlueprintCallable, Category = "QLearning")
+	bool DesideStartAndDest(const TArray<FUCellArray>& map);
 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-public:	
+public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+private:
+	FIntPoint StartPos, DestPos;
 };

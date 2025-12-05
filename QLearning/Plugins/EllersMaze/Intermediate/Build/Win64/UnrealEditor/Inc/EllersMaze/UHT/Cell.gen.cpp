@@ -13,6 +13,7 @@ void EmptyLinkFunctionForGeneratedCodeCell() {}
 
 // ********** Begin Cross Module References ********************************************************
 COREUOBJECT_API UClass* Z_Construct_UClass_UObject();
+COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FIntPoint();
 COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
 ELLERSMAZE_API UClass* Z_Construct_UClass_UCell();
 ELLERSMAZE_API UClass* Z_Construct_UClass_UCell_NoRegister();
@@ -183,6 +184,11 @@ struct Z_Construct_UClass_UCell_Statics
 		{ "Category", "Cell" },
 		{ "ModuleRelativePath", "Public/Cell.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_position_MetaData[] = {
+		{ "AllowPrivateACCess", "true" },
+		{ "Category", "Cell" },
+		{ "ModuleRelativePath", "Public/Cell.h" },
+	};
 #endif // WITH_METADATA
 	static void NewProp_hasRightWall_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_hasRightWall;
@@ -193,6 +199,7 @@ struct Z_Construct_UClass_UCell_Statics
 	static void NewProp_hasLeftWall_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_hasLeftWall;
 	static const UECodeGen_Private::FIntPropertyParams NewProp_group;
+	static const UECodeGen_Private::FStructPropertyParams NewProp_position;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
@@ -226,12 +233,14 @@ void Z_Construct_UClass_UCell_Statics::NewProp_hasLeftWall_SetBit(void* Obj)
 }
 const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UCell_Statics::NewProp_hasLeftWall = { "hasLeftWall", nullptr, (EPropertyFlags)0x0010000000020015, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(UCell), &Z_Construct_UClass_UCell_Statics::NewProp_hasLeftWall_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_hasLeftWall_MetaData), NewProp_hasLeftWall_MetaData) };
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_UCell_Statics::NewProp_group = { "group", nullptr, (EPropertyFlags)0x0010000000020015, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UCell, group), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_group_MetaData), NewProp_group_MetaData) };
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UCell_Statics::NewProp_position = { "position", nullptr, (EPropertyFlags)0x0010000000020015, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UCell, position), Z_Construct_UScriptStruct_FIntPoint, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_position_MetaData), NewProp_position_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UCell_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCell_Statics::NewProp_hasRightWall,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCell_Statics::NewProp_hasBottomWall,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCell_Statics::NewProp_hasTopWall,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCell_Statics::NewProp_hasLeftWall,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCell_Statics::NewProp_group,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCell_Statics::NewProp_position,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UCell_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_UCell_Statics::DependentSingletons[])() = {
@@ -271,10 +280,10 @@ UCell::~UCell() {}
 struct Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_EllersMaze_Source_EllersMaze_Public_Cell_h__Script_EllersMaze_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UCell, UCell::StaticClass, TEXT("UCell"), &Z_Registration_Info_UClass_UCell, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCell), 1669896638U) },
+		{ Z_Construct_UClass_UCell, UCell::StaticClass, TEXT("UCell"), &Z_Registration_Info_UClass_UCell, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCell), 2395259692U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_EllersMaze_Source_EllersMaze_Public_Cell_h__Script_EllersMaze_1715623760(TEXT("/Script/EllersMaze"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_EllersMaze_Source_EllersMaze_Public_Cell_h__Script_EllersMaze_2299419798(TEXT("/Script/EllersMaze"),
 	Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_EllersMaze_Source_EllersMaze_Public_Cell_h__Script_EllersMaze_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_EllersMaze_Source_EllersMaze_Public_Cell_h__Script_EllersMaze_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

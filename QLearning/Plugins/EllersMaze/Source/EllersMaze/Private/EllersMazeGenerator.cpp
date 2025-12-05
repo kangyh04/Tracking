@@ -14,6 +14,7 @@ TArray<FUCellArray> UEllersMazeGenerator::Generate(int width, int height)
 		UCell* cell = NewObject<UCell>();
 		cell->SetGroup(i);
 		cell->SetTopWall(true);
+		cell->SetPosition(FIntPoint(i, 0));
 		if (i == 0)
 		{
 			cell->SetLeftWall(true);
@@ -333,6 +334,7 @@ FUCellArray UEllersMazeGenerator::PrepareNextRow(FUCellArray& cells, int rowNumb
 	{
 		auto cell = cells.InnerArray[i];
 		auto belowCell = cell->Duplicate();
+		belowCell->SetPosition(FIntPoint(i, rowNumber + 1));
 		belowCell->SetTopWall(false);
 		belowCell->SetLeftWall(false);
 		belowCell->SetRightWall(false);
