@@ -4,12 +4,11 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
-
+#include "QLearningAlgorithm.h"
 #include "MyCharacter.generated.h"
 
 class USpringArmComponent;
 class UCameraComponent;
-class UQLearningAlgorithm;
 
 struct FUCellArray;
 
@@ -36,6 +35,12 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "QLearning")
 	bool DesideStartAndDest(const TArray<FUCellArray>& map);
+
+	UFUNCTION(BlueprintCallable, Category = "QLearning")
+	void TrainQLearning(int32 episodes)
+	{
+		QLearningAlgorithm->Train(episodes);
+	}
 
 protected:
 	// Called when the game starts or when spawned

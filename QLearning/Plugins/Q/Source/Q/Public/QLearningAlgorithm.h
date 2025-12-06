@@ -27,6 +27,11 @@ public:
 
 	void RunEpisode();
 
+	UFUNCTION(BlueprintCallable, Category = "QLearning")
+	FQLearningResult TrainStep();
+
+	FQLearningResult Step();
+
 	bool IsReachedGoal(const FIntPoint& position) const
 	{
 		return position == GoalPos;
@@ -73,6 +78,9 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "QLearning|Parameters")
 	FQLearningRewardData RewardParameters;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "QLearning|Parameters")
+	FQLearningResult LastResult;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "QLearning|Parameters")
 	TMap<EQLearningActionType, FIntPoint> ActionDirections =

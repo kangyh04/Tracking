@@ -27,7 +27,8 @@ public:
 
 	bool operator==(const FQLearningStateData& Other) const
 	{
-		return Position == Other.Position && DistanceToGoal == Other.DistanceToGoal;
+		return Position == Other.Position &&
+			DistanceToGoal == Other.DistanceToGoal;
 	}
 };
 
@@ -170,5 +171,28 @@ struct FQLearningStatisticsData
 
 		AverageRewardPerEpisode = TotalReward / CurrentEpisode;
 		BestEpisodeReward = FMath::Max(BestEpisodeReward, episodeReward);
+	}
+};
+
+USTRUCT(Atomic, Blueprintable, BlueprintType)
+struct FQLearningResult
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "QLearning|Result")
+	FIntPoint Position;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "QLearning|Result")
+	bool bReachedGoal = false;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "QLearning|Result")
+	float TotalReward = 0.0f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "QLearning|Result")
+	int32 Steps = 0;
+
+	void Initialize(FIntPoint position)
+	{
+		Position = position;
 	}
 };

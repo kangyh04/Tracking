@@ -15,6 +15,8 @@ void UQLearningAlgorithm::Initialize(int32 width, const TArray<int32>& maze, FIn
 	int32 distanceToGoal = UAStarAlgorithm::CalculateManhattanDistance(startPos, goalPos);
 	CurrentState.Initialize(startPos, distanceToGoal);
 
+	LastResult.Initialize(startPos);
+
 	Statistics = FQLearningStatisticsData();
 }
 
@@ -23,7 +25,6 @@ void UQLearningAlgorithm::Train(int32 episodes)
 	for (int episode = 0; episode < episodes; ++episode)
 	{
 		RunEpisode();
-
 	}
 }
 
@@ -57,6 +58,40 @@ void UQLearningAlgorithm::RunEpisode()
 	}
 
 	Statistics.UpdateEpisode(reward, steps, reachedGoal);
+}
+
+FQLearningResult UQLearningAlgorithm::TrainStep()
+{
+	auto result = Step();
+
+	if (result.bReachedGoal)
+	{
+		Statistics.UpdateEpisode(result.TotalReward, result.Steps, true);
+	}
+
+	return result;
+}
+
+FQLearningResult UQLearningAlgorithm::Step()
+{
+	FQLearningResult result;
+
+	EQLearningActionType action = ChooseAction(CurrentState);
+	FQLearningStateData nextState = GetNextState(CurrentState, action);
+
+	float reward = GetReward(CurrentState, action, nextState);
+
+	UpdateQValue(CurrentState, action, reward, nextState);
+	VisitedCounts.FindOrAdd(CurrentState.Position) += 1;
+
+	CurrentState = nextState;
+
+	result.Position = CurrentState.Position;
+	result.bReachedGoal = IsReachedGoal(result.Position);
+	result.Steps = LastResult.Steps + 1;
+	result.TotalReward = LastResult.TotalReward + reward;
+
+	return result;
 }
 
 EQLearningActionType UQLearningAlgorithm::ChooseAction(const FQLearningStateData& state)
@@ -96,11 +131,6 @@ FQLearningStateData UQLearningAlgorithm::GetNextState(const FQLearningStateData&
 	{
 		nextState.Position = newPosition;
 		nextState.DistanceToGoal = UAStarAlgorithm::CalculateManhattanDistance(nextState.Position, GoalPos);
-// 		if (!VisitedCounts.Contains(newPosition))
-// 		{
-// 			VisitedCounts.Add(newPosition, 0);
-// 		}
-// 		VisitedCounts[newPosition] += 1;
 	}
 
 	return nextState;
@@ -162,7 +192,11 @@ bool UQLearningAlgorithm::IsValidPosition(const FIntPoint& position)
 
 bool UQLearningAlgorithm::IsOnOptimizedPath(const FIntPoint& position)
 {
-	return false;
+	auto optimizedPath = UAStarAlgorithm::FindPath(Maze, Width, StartPos, GoalPos);
+
+	int32 index = position.Y * Width + position.X;
+
+	return optimizedPath[index] == static_cast<int8>(NodeState::OnRoute);
 }
 
 void UQLearningAlgorithm::UpdateQValue(const FQLearningStateData& currentState, EQLearningActionType action, float reward, const FQLearningStateData& nextState)
@@ -187,4 +221,5 @@ void UQLearningAlgorithm::UpdateQValue(const FQLearningStateData& currentState, 
 
 void UQLearningAlgorithm::CalculateOptimizedPath()
 {
+	UAStarAlgorithm::FindPath(Maze, Width, StartPos, GoalPos);
 }

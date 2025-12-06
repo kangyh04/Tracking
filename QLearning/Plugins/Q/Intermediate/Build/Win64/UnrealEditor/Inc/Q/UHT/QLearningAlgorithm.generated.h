@@ -16,8 +16,11 @@
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
+struct FQLearningResult;
+
 // ********** Begin Class UQLearningAlgorithm ******************************************************
 #define FID_Studying_Tracking_QLearning_Plugins_Q_Source_Q_Public_QLearningAlgorithm_h_19_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execTrainStep); \
 	DECLARE_FUNCTION(execTrain); \
 	DECLARE_FUNCTION(execInitialize);
 
