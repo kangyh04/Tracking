@@ -27,7 +27,7 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Camera", meta = (AllowPrivateAccess = "true"))
 	UCameraComponent* FollowCamera;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "QLearning")
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "QLearning", meta = (AllowPrivateAccess = "true"))
 	UQLearningAlgorithm* QLearningAlgorithm;
 
 	UFUNCTION(BlueprintCallable, Category = "QLearning")
@@ -37,10 +37,7 @@ public:
 	bool DesideStartAndDest(const TArray<FUCellArray>& map);
 
 	UFUNCTION(BlueprintCallable, Category = "QLearning")
-	void TrainQLearning(int32 episodes)
-	{
-		QLearningAlgorithm->Train(episodes);
-	}
+	void TrainQLearning();
 
 protected:
 	// Called when the game starts or when spawned
@@ -55,4 +52,5 @@ public:
 
 private:
 	FIntPoint StartPos, DestPos;
+	FIntPoint NextPos;
 };

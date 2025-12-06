@@ -109,6 +109,13 @@ bool AMyCharacter::DesideStartAndDest(const TArray<FUCellArray>& maze)
 	return bSuccess;
 }
 
+void AMyCharacter::TrainQLearning()
+{
+	auto result = QLearningAlgorithm->TrainStep();
+
+	NextPos = result.Position;
+}
+
 // Called when the game starts or when spawned
 void AMyCharacter::BeginPlay()
 {
@@ -120,6 +127,22 @@ void AMyCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	// TODO : make target location based on NextPos
+	auto targetLocation = FVector(0.0f, 0.0f, 0.0f);
+
+	FVector direction = (targetLocation - GetActorLocation()).GetSafeNormal();
+	float remainingDistance = FVector::Distance(GetActorLocation(), targetLocation);
+
+	while (remainingDistance > KINDA_SMALL_NUMBER)
+	{
+		float moveStep = GetCharacterMovement()->MaxWalkSpeed * DeltaTime;
+		if (moveStep > remainingDistance)
+		{
+			moveStep = remainingDistance;
+		}
+		AddMovementInput(direction, moveStep / GetCharacterMovement()->MaxWalkSpeed);
+		remainingDistance -= moveStep;
+	}
 }
 
 // Called to bind functionality to input

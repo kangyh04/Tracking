@@ -135,27 +135,15 @@ DEFINE_FUNCTION(AMyCharacter::execPrepareQLearning)
 // ********** Begin Class AMyCharacter Function TrainQLearning *************************************
 struct Z_Construct_UFunction_AMyCharacter_TrainQLearning_Statics
 {
-	struct MyCharacter_eventTrainQLearning_Parms
-	{
-		int32 episodes;
-	};
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
 		{ "Category", "QLearning" },
 		{ "ModuleRelativePath", "MyCharacter.h" },
 	};
 #endif // WITH_METADATA
-	static const UECodeGen_Private::FIntPropertyParams NewProp_episodes;
-	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static const UECodeGen_Private::FFunctionParams FuncParams;
 };
-const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_AMyCharacter_TrainQLearning_Statics::NewProp_episodes = { "episodes", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(MyCharacter_eventTrainQLearning_Parms, episodes), METADATA_PARAMS(0, nullptr) };
-const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AMyCharacter_TrainQLearning_Statics::PropPointers[] = {
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMyCharacter_TrainQLearning_Statics::NewProp_episodes,
-};
-static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AMyCharacter_TrainQLearning_Statics::PropPointers) < 2048);
-const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMyCharacter_TrainQLearning_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_AMyCharacter, nullptr, "TrainQLearning", Z_Construct_UFunction_AMyCharacter_TrainQLearning_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AMyCharacter_TrainQLearning_Statics::PropPointers), sizeof(Z_Construct_UFunction_AMyCharacter_TrainQLearning_Statics::MyCharacter_eventTrainQLearning_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AMyCharacter_TrainQLearning_Statics::Function_MetaDataParams), Z_Construct_UFunction_AMyCharacter_TrainQLearning_Statics::Function_MetaDataParams)},  };
-static_assert(sizeof(Z_Construct_UFunction_AMyCharacter_TrainQLearning_Statics::MyCharacter_eventTrainQLearning_Parms) < MAX_uint16);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMyCharacter_TrainQLearning_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_AMyCharacter, nullptr, "TrainQLearning", nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AMyCharacter_TrainQLearning_Statics::Function_MetaDataParams), Z_Construct_UFunction_AMyCharacter_TrainQLearning_Statics::Function_MetaDataParams)},  };
 UFunction* Z_Construct_UFunction_AMyCharacter_TrainQLearning()
 {
 	static UFunction* ReturnFunction = nullptr;
@@ -167,10 +155,9 @@ UFunction* Z_Construct_UFunction_AMyCharacter_TrainQLearning()
 }
 DEFINE_FUNCTION(AMyCharacter::execTrainQLearning)
 {
-	P_GET_PROPERTY(FIntProperty,Z_Param_episodes);
 	P_FINISH;
 	P_NATIVE_BEGIN;
-	P_THIS->TrainQLearning(Z_Param_episodes);
+	P_THIS->TrainQLearning();
 	P_NATIVE_END;
 }
 // ********** End Class AMyCharacter Function TrainQLearning ***************************************
@@ -236,6 +223,7 @@ struct Z_Construct_UClass_AMyCharacter_Statics
 		{ "ModuleRelativePath", "MyCharacter.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_QLearningAlgorithm_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
 		{ "Category", "QLearning" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "MyCharacter.h" },
@@ -249,7 +237,7 @@ struct Z_Construct_UClass_AMyCharacter_Statics
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
 		{ &Z_Construct_UFunction_AMyCharacter_DesideStartAndDest, "DesideStartAndDest" }, // 1201611176
 		{ &Z_Construct_UFunction_AMyCharacter_PrepareQLearning, "PrepareQLearning" }, // 1481970578
-		{ &Z_Construct_UFunction_AMyCharacter_TrainQLearning, "TrainQLearning" }, // 1982818028
+		{ &Z_Construct_UFunction_AMyCharacter_TrainQLearning, "TrainQLearning" }, // 2156092050
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -302,10 +290,10 @@ AMyCharacter::~AMyCharacter() {}
 struct Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Source_QLearning_MyCharacter_h__Script_QLearning_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AMyCharacter, AMyCharacter::StaticClass, TEXT("AMyCharacter"), &Z_Registration_Info_UClass_AMyCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMyCharacter), 549345857U) },
+		{ Z_Construct_UClass_AMyCharacter, AMyCharacter::StaticClass, TEXT("AMyCharacter"), &Z_Registration_Info_UClass_AMyCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMyCharacter), 1642193519U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Source_QLearning_MyCharacter_h__Script_QLearning_3763182395(TEXT("/Script/QLearning"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Source_QLearning_MyCharacter_h__Script_QLearning_3500604728(TEXT("/Script/QLearning"),
 	Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Source_QLearning_MyCharacter_h__Script_QLearning_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Source_QLearning_MyCharacter_h__Script_QLearning_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
