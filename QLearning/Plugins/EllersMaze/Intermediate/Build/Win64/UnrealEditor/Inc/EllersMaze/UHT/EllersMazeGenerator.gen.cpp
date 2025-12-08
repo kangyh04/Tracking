@@ -13,6 +13,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeEllersMazeGenerator() {}
 
 // ********** Begin Cross Module References ********************************************************
+COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FIntPoint();
 ELLERSMAZE_API UClass* Z_Construct_UClass_UEllersMazeGenerator();
 ELLERSMAZE_API UClass* Z_Construct_UClass_UEllersMazeGenerator_NoRegister();
 ELLERSMAZE_API UScriptStruct* Z_Construct_UScriptStruct_FUCellArray();
@@ -21,6 +22,54 @@ ENGINE_API UClass* Z_Construct_UClass_UBlueprintFunctionLibrary();
 PROCEDURALMESHCOMPONENT_API UClass* Z_Construct_UClass_UProceduralMeshComponent_NoRegister();
 UPackage* Z_Construct_UPackage__Script_EllersMaze();
 // ********** End Cross Module References **********************************************************
+
+// ********** Begin Class UEllersMazeGenerator Function CellDivideRatio ****************************
+struct Z_Construct_UFunction_UEllersMazeGenerator_CellDivideRatio_Statics
+{
+	struct EllersMazeGenerator_eventCellDivideRatio_Parms
+	{
+		int32 ReturnValue;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "EllersMaze" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = \"EllersMaze\", meta = (AllowPrivateAccess = \"true\"))\n" },
+#endif
+		{ "ModuleRelativePath", "Public/EllersMazeGenerator.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = \"EllersMaze\", meta = (AllowPrivateAccess = \"true\"))" },
+#endif
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FIntPropertyParams NewProp_ReturnValue;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UEllersMazeGenerator_CellDivideRatio_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(EllersMazeGenerator_eventCellDivideRatio_Parms, ReturnValue), METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UEllersMazeGenerator_CellDivideRatio_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UEllersMazeGenerator_CellDivideRatio_Statics::NewProp_ReturnValue,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UEllersMazeGenerator_CellDivideRatio_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UEllersMazeGenerator_CellDivideRatio_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_UEllersMazeGenerator, nullptr, "CellDivideRatio", Z_Construct_UFunction_UEllersMazeGenerator_CellDivideRatio_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UEllersMazeGenerator_CellDivideRatio_Statics::PropPointers), sizeof(Z_Construct_UFunction_UEllersMazeGenerator_CellDivideRatio_Statics::EllersMazeGenerator_eventCellDivideRatio_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04022401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UEllersMazeGenerator_CellDivideRatio_Statics::Function_MetaDataParams), Z_Construct_UFunction_UEllersMazeGenerator_CellDivideRatio_Statics::Function_MetaDataParams)},  };
+static_assert(sizeof(Z_Construct_UFunction_UEllersMazeGenerator_CellDivideRatio_Statics::EllersMazeGenerator_eventCellDivideRatio_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_UEllersMazeGenerator_CellDivideRatio()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UEllersMazeGenerator_CellDivideRatio_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(UEllersMazeGenerator::execCellDivideRatio)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	*(int32*)Z_Param__Result=UEllersMazeGenerator::CellDivideRatio();
+	P_NATIVE_END;
+}
+// ********** End Class UEllersMazeGenerator Function CellDivideRatio ******************************
 
 // ********** Begin Class UEllersMazeGenerator Function Generate ***********************************
 struct Z_Construct_UFunction_UEllersMazeGenerator_Generate_Statics
@@ -121,6 +170,58 @@ DEFINE_FUNCTION(UEllersMazeGenerator::execGenerateMock)
 	P_NATIVE_END;
 }
 // ********** End Class UEllersMazeGenerator Function GenerateMock *********************************
+
+// ********** Begin Class UEllersMazeGenerator Function IntIndexToCellIndex ************************
+struct Z_Construct_UFunction_UEllersMazeGenerator_IntIndexToCellIndex_Statics
+{
+	struct EllersMazeGenerator_eventIntIndexToCellIndex_Parms
+	{
+		int32 index;
+		int32 width;
+		FIntPoint ReturnValue;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "EllersMaze" },
+		{ "ModuleRelativePath", "Public/EllersMazeGenerator.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FIntPropertyParams NewProp_index;
+	static const UECodeGen_Private::FIntPropertyParams NewProp_width;
+	static const UECodeGen_Private::FStructPropertyParams NewProp_ReturnValue;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UEllersMazeGenerator_IntIndexToCellIndex_Statics::NewProp_index = { "index", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(EllersMazeGenerator_eventIntIndexToCellIndex_Parms, index), METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UEllersMazeGenerator_IntIndexToCellIndex_Statics::NewProp_width = { "width", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(EllersMazeGenerator_eventIntIndexToCellIndex_Parms, width), METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UEllersMazeGenerator_IntIndexToCellIndex_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(EllersMazeGenerator_eventIntIndexToCellIndex_Parms, ReturnValue), Z_Construct_UScriptStruct_FIntPoint, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UEllersMazeGenerator_IntIndexToCellIndex_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UEllersMazeGenerator_IntIndexToCellIndex_Statics::NewProp_index,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UEllersMazeGenerator_IntIndexToCellIndex_Statics::NewProp_width,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UEllersMazeGenerator_IntIndexToCellIndex_Statics::NewProp_ReturnValue,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UEllersMazeGenerator_IntIndexToCellIndex_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UEllersMazeGenerator_IntIndexToCellIndex_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_UEllersMazeGenerator, nullptr, "IntIndexToCellIndex", Z_Construct_UFunction_UEllersMazeGenerator_IntIndexToCellIndex_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UEllersMazeGenerator_IntIndexToCellIndex_Statics::PropPointers), sizeof(Z_Construct_UFunction_UEllersMazeGenerator_IntIndexToCellIndex_Statics::EllersMazeGenerator_eventIntIndexToCellIndex_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04822401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UEllersMazeGenerator_IntIndexToCellIndex_Statics::Function_MetaDataParams), Z_Construct_UFunction_UEllersMazeGenerator_IntIndexToCellIndex_Statics::Function_MetaDataParams)},  };
+static_assert(sizeof(Z_Construct_UFunction_UEllersMazeGenerator_IntIndexToCellIndex_Statics::EllersMazeGenerator_eventIntIndexToCellIndex_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_UEllersMazeGenerator_IntIndexToCellIndex()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UEllersMazeGenerator_IntIndexToCellIndex_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(UEllersMazeGenerator::execIntIndexToCellIndex)
+{
+	P_GET_PROPERTY(FIntProperty,Z_Param_index);
+	P_GET_PROPERTY(FIntProperty,Z_Param_width);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	*(FIntPoint*)Z_Param__Result=UEllersMazeGenerator::IntIndexToCellIndex(Z_Param_index,Z_Param_width);
+	P_NATIVE_END;
+}
+// ********** End Class UEllersMazeGenerator Function IntIndexToCellIndex **************************
 
 // ********** Begin Class UEllersMazeGenerator Function MazeToIntArray *****************************
 struct Z_Construct_UFunction_UEllersMazeGenerator_MazeToIntArray_Statics
@@ -244,8 +345,10 @@ void UEllersMazeGenerator::StaticRegisterNativesUEllersMazeGenerator()
 {
 	UClass* Class = UEllersMazeGenerator::StaticClass();
 	static const FNameNativePtrPair Funcs[] = {
+		{ "CellDivideRatio", &UEllersMazeGenerator::execCellDivideRatio },
 		{ "Generate", &UEllersMazeGenerator::execGenerate },
 		{ "GenerateMock", &UEllersMazeGenerator::execGenerateMock },
+		{ "IntIndexToCellIndex", &UEllersMazeGenerator::execIntIndexToCellIndex },
 		{ "MazeToIntArray", &UEllersMazeGenerator::execMazeToIntArray },
 		{ "ToProceduralMesh", &UEllersMazeGenerator::execToProceduralMesh },
 	};
@@ -293,8 +396,10 @@ struct Z_Construct_UClass_UEllersMazeGenerator_Statics
 #endif // WITH_METADATA
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
+		{ &Z_Construct_UFunction_UEllersMazeGenerator_CellDivideRatio, "CellDivideRatio" }, // 1108148487
 		{ &Z_Construct_UFunction_UEllersMazeGenerator_Generate, "Generate" }, // 3294703418
 		{ &Z_Construct_UFunction_UEllersMazeGenerator_GenerateMock, "GenerateMock" }, // 2089860409
+		{ &Z_Construct_UFunction_UEllersMazeGenerator_IntIndexToCellIndex, "IntIndexToCellIndex" }, // 4094276773
 		{ &Z_Construct_UFunction_UEllersMazeGenerator_MazeToIntArray, "MazeToIntArray" }, // 742336523
 		{ &Z_Construct_UFunction_UEllersMazeGenerator_ToProceduralMesh, "ToProceduralMesh" }, // 60934984
 	};
@@ -341,10 +446,10 @@ UEllersMazeGenerator::~UEllersMazeGenerator() {}
 struct Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_EllersMaze_Source_EllersMaze_Public_EllersMazeGenerator_h__Script_EllersMaze_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UEllersMazeGenerator, UEllersMazeGenerator::StaticClass, TEXT("UEllersMazeGenerator"), &Z_Registration_Info_UClass_UEllersMazeGenerator, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UEllersMazeGenerator), 3353442932U) },
+		{ Z_Construct_UClass_UEllersMazeGenerator, UEllersMazeGenerator::StaticClass, TEXT("UEllersMazeGenerator"), &Z_Registration_Info_UClass_UEllersMazeGenerator, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UEllersMazeGenerator), 3234806130U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_EllersMaze_Source_EllersMaze_Public_EllersMazeGenerator_h__Script_EllersMaze_928003460(TEXT("/Script/EllersMaze"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_EllersMaze_Source_EllersMaze_Public_EllersMazeGenerator_h__Script_EllersMaze_4289667642(TEXT("/Script/EllersMaze"),
 	Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_EllersMaze_Source_EllersMaze_Public_EllersMazeGenerator_h__Script_EllersMaze_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_EllersMaze_Source_EllersMaze_Public_EllersMazeGenerator_h__Script_EllersMaze_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

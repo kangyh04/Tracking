@@ -186,6 +186,12 @@
     <ClInclude Include="..\..\Source\QLearning\MyCharacter.h">
       <Filter>Source\QLearning</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\QLearning\MyGameModeBase.cpp">
+      <Filter>Source\QLearning</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\QLearning\MyGameModeBase.h">
+      <Filter>Source\QLearning</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\QLearning\MyMazeGenerator.cpp">
       <Filter>Source\QLearning</Filter>
     </ClCompile>

@@ -19,7 +19,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 struct FUCellArray;
 
 // ********** Begin Class AMyCharacter *************************************************************
-#define FID_Studying_Tracking_QLearning_Source_QLearning_MyCharacter_h_18_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_Studying_Tracking_QLearning_Source_QLearning_MyCharacter_h_19_RPC_WRAPPERS_NO_PURE_DECLS \
 	DECLARE_FUNCTION(execTrainQLearning); \
 	DECLARE_FUNCTION(execDesideStartAndDest); \
 	DECLARE_FUNCTION(execPrepareQLearning);
@@ -27,7 +27,7 @@ struct FUCellArray;
 
 QLEARNING_API UClass* Z_Construct_UClass_AMyCharacter_NoRegister();
 
-#define FID_Studying_Tracking_QLearning_Source_QLearning_MyCharacter_h_18_INCLASS_NO_PURE_DECLS \
+#define FID_Studying_Tracking_QLearning_Source_QLearning_MyCharacter_h_19_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAMyCharacter(); \
 	friend struct Z_Construct_UClass_AMyCharacter_Statics; \
@@ -38,7 +38,7 @@ public: \
 	DECLARE_SERIALIZER(AMyCharacter)
 
 
-#define FID_Studying_Tracking_QLearning_Source_QLearning_MyCharacter_h_18_ENHANCED_CONSTRUCTORS \
+#define FID_Studying_Tracking_QLearning_Source_QLearning_MyCharacter_h_19_ENHANCED_CONSTRUCTORS \
 	/** Deleted move- and copy-constructors, should never be used */ \
 	AMyCharacter(AMyCharacter&&) = delete; \
 	AMyCharacter(const AMyCharacter&) = delete; \
@@ -48,13 +48,13 @@ public: \
 	NO_API virtual ~AMyCharacter();
 
 
-#define FID_Studying_Tracking_QLearning_Source_QLearning_MyCharacter_h_15_PROLOG
-#define FID_Studying_Tracking_QLearning_Source_QLearning_MyCharacter_h_18_GENERATED_BODY \
+#define FID_Studying_Tracking_QLearning_Source_QLearning_MyCharacter_h_16_PROLOG
+#define FID_Studying_Tracking_QLearning_Source_QLearning_MyCharacter_h_19_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Studying_Tracking_QLearning_Source_QLearning_MyCharacter_h_18_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_Studying_Tracking_QLearning_Source_QLearning_MyCharacter_h_18_INCLASS_NO_PURE_DECLS \
-	FID_Studying_Tracking_QLearning_Source_QLearning_MyCharacter_h_18_ENHANCED_CONSTRUCTORS \
+	FID_Studying_Tracking_QLearning_Source_QLearning_MyCharacter_h_19_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_Studying_Tracking_QLearning_Source_QLearning_MyCharacter_h_19_INCLASS_NO_PURE_DECLS \
+	FID_Studying_Tracking_QLearning_Source_QLearning_MyCharacter_h_19_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

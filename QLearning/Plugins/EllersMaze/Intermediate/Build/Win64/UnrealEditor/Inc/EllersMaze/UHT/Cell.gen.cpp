@@ -110,6 +110,48 @@ DEFINE_FUNCTION(UCell::execGetVertices)
 }
 // ********** End Class UCell Function GetVertices *************************************************
 
+// ********** Begin Class UCell Function GetWorldCenterLocation ************************************
+struct Z_Construct_UFunction_UCell_GetWorldCenterLocation_Statics
+{
+	struct Cell_eventGetWorldCenterLocation_Parms
+	{
+		FVector ReturnValue;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "EllersMaze|Cell" },
+		{ "ModuleRelativePath", "Public/Cell.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FStructPropertyParams NewProp_ReturnValue;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UCell_GetWorldCenterLocation_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Cell_eventGetWorldCenterLocation_Parms, ReturnValue), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UCell_GetWorldCenterLocation_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCell_GetWorldCenterLocation_Statics::NewProp_ReturnValue,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UCell_GetWorldCenterLocation_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCell_GetWorldCenterLocation_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_UCell, nullptr, "GetWorldCenterLocation", Z_Construct_UFunction_UCell_GetWorldCenterLocation_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UCell_GetWorldCenterLocation_Statics::PropPointers), sizeof(Z_Construct_UFunction_UCell_GetWorldCenterLocation_Statics::Cell_eventGetWorldCenterLocation_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04820401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UCell_GetWorldCenterLocation_Statics::Function_MetaDataParams), Z_Construct_UFunction_UCell_GetWorldCenterLocation_Statics::Function_MetaDataParams)},  };
+static_assert(sizeof(Z_Construct_UFunction_UCell_GetWorldCenterLocation_Statics::Cell_eventGetWorldCenterLocation_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_UCell_GetWorldCenterLocation()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UCell_GetWorldCenterLocation_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(UCell::execGetWorldCenterLocation)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	*(FVector*)Z_Param__Result=P_THIS->GetWorldCenterLocation();
+	P_NATIVE_END;
+}
+// ********** End Class UCell Function GetWorldCenterLocation **************************************
+
 // ********** Begin Class UCell ********************************************************************
 void UCell::StaticRegisterNativesUCell()
 {
@@ -117,6 +159,7 @@ void UCell::StaticRegisterNativesUCell()
 	static const FNameNativePtrPair Funcs[] = {
 		{ "GetIndices", &UCell::execGetIndices },
 		{ "GetVertices", &UCell::execGetVertices },
+		{ "GetWorldCenterLocation", &UCell::execGetWorldCenterLocation },
 	};
 	FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 }
@@ -205,6 +248,7 @@ struct Z_Construct_UClass_UCell_Statics
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
 		{ &Z_Construct_UFunction_UCell_GetIndices, "GetIndices" }, // 6230117
 		{ &Z_Construct_UFunction_UCell_GetVertices, "GetVertices" }, // 4214586790
+		{ &Z_Construct_UFunction_UCell_GetWorldCenterLocation, "GetWorldCenterLocation" }, // 1892572671
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -280,10 +324,10 @@ UCell::~UCell() {}
 struct Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_EllersMaze_Source_EllersMaze_Public_Cell_h__Script_EllersMaze_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UCell, UCell::StaticClass, TEXT("UCell"), &Z_Registration_Info_UClass_UCell, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCell), 2395259692U) },
+		{ Z_Construct_UClass_UCell, UCell::StaticClass, TEXT("UCell"), &Z_Registration_Info_UClass_UCell, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCell), 2175217110U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_EllersMaze_Source_EllersMaze_Public_Cell_h__Script_EllersMaze_2299419798(TEXT("/Script/EllersMaze"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_EllersMaze_Source_EllersMaze_Public_Cell_h__Script_EllersMaze_1287865724(TEXT("/Script/EllersMaze"),
 	Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_EllersMaze_Source_EllersMaze_Public_Cell_h__Script_EllersMaze_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Studying_Tracking_QLearning_Plugins_EllersMaze_Source_EllersMaze_Public_Cell_h__Script_EllersMaze_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

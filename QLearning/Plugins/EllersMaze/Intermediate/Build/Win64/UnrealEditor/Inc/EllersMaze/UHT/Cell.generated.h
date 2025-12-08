@@ -19,7 +19,8 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 // ********** Begin Class UCell ********************************************************************
 #define FID_Studying_Tracking_QLearning_Plugins_EllersMaze_Source_EllersMaze_Public_Cell_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
 	DECLARE_FUNCTION(execGetIndices); \
-	DECLARE_FUNCTION(execGetVertices);
+	DECLARE_FUNCTION(execGetVertices); \
+	DECLARE_FUNCTION(execGetWorldCenterLocation);
 
 
 ELLERSMAZE_API UClass* Z_Construct_UClass_UCell_NoRegister();

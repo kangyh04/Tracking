@@ -19,7 +19,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 // ********** Begin Class AMyMazeGenerator *********************************************************
 QLEARNING_API UClass* Z_Construct_UClass_AMyMazeGenerator_NoRegister();
 
-#define FID_Studying_Tracking_QLearning_Source_QLearning_MyMazeGenerator_h_12_INCLASS_NO_PURE_DECLS \
+#define FID_Studying_Tracking_QLearning_Source_QLearning_MyMazeGenerator_h_13_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAMyMazeGenerator(); \
 	friend struct Z_Construct_UClass_AMyMazeGenerator_Statics; \
@@ -30,7 +30,7 @@ public: \
 	DECLARE_SERIALIZER(AMyMazeGenerator)
 
 
-#define FID_Studying_Tracking_QLearning_Source_QLearning_MyMazeGenerator_h_12_ENHANCED_CONSTRUCTORS \
+#define FID_Studying_Tracking_QLearning_Source_QLearning_MyMazeGenerator_h_13_ENHANCED_CONSTRUCTORS \
 	/** Deleted move- and copy-constructors, should never be used */ \
 	AMyMazeGenerator(AMyMazeGenerator&&) = delete; \
 	AMyMazeGenerator(const AMyMazeGenerator&) = delete; \
@@ -40,12 +40,12 @@ public: \
 	NO_API virtual ~AMyMazeGenerator();
 
 
-#define FID_Studying_Tracking_QLearning_Source_QLearning_MyMazeGenerator_h_9_PROLOG
-#define FID_Studying_Tracking_QLearning_Source_QLearning_MyMazeGenerator_h_12_GENERATED_BODY \
+#define FID_Studying_Tracking_QLearning_Source_QLearning_MyMazeGenerator_h_10_PROLOG
+#define FID_Studying_Tracking_QLearning_Source_QLearning_MyMazeGenerator_h_13_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Studying_Tracking_QLearning_Source_QLearning_MyMazeGenerator_h_12_INCLASS_NO_PURE_DECLS \
-	FID_Studying_Tracking_QLearning_Source_QLearning_MyMazeGenerator_h_12_ENHANCED_CONSTRUCTORS \
+	FID_Studying_Tracking_QLearning_Source_QLearning_MyMazeGenerator_h_13_INCLASS_NO_PURE_DECLS \
+	FID_Studying_Tracking_QLearning_Source_QLearning_MyMazeGenerator_h_13_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

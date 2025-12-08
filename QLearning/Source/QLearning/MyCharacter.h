@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "QLearningAlgorithm.h"
+#include "Cell.h"
 #include "MyCharacter.generated.h"
 
 class USpringArmComponent;
@@ -37,7 +38,13 @@ public:
 	bool DesideStartAndDest(const TArray<FUCellArray>& map);
 
 	UFUNCTION(BlueprintCallable, Category = "QLearning")
-	void TrainQLearning();
+	void TrainQLearning(const TArray<FUCellArray>& map);
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "MazeCell", meta = (AllowPrivateAccess = "true"))
+	UCell* CurrentCell;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "QLearning", meta = (AllowPrivateAccess = "true"))
+	bool IsMoving;
 
 protected:
 	// Called when the game starts or when spawned

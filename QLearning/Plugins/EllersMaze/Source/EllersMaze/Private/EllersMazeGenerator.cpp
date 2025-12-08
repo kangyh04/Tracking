@@ -201,14 +201,14 @@ UProceduralMeshComponent* UEllersMazeGenerator::ToProceduralMesh(AActor* parent,
 TArray<int32> UEllersMazeGenerator::MazeToIntArray(const TArray<FUCellArray>& maze)
 {
 	// int32 width = maze[0].InnerArray.Num() * 2;
-	int32 width = maze[0].InnerArray.Num() * 3;
+	int32 width = maze[0].InnerArray.Num() * UEllersMazeGenerator::DivideRatio;
 	// NOTE : each cell is represented by 3x3 integers
 	// Left Top    | Top               | Right Top
 	//-----------------------------------
 	// Left        |Actual Movable Area|   Right
 	//-----------------------------------
 	// Left Bottom | Bottom            | Right Bottom
-	int32 length = maze.Num() * 3 * width;
+	int32 length = maze.Num() * DivideRatio * width;
 	TArray<int32> result;
 	result.SetNum(length);
 
@@ -256,6 +256,11 @@ TArray<int32> UEllersMazeGenerator::MazeToIntArray(const TArray<FUCellArray>& ma
 	}
 
 	return result;
+}
+
+FIntPoint UEllersMazeGenerator::IntIndexToCellIndex(int32 index, int32 width)
+{
+	return FIntPoint(index % (width * DivideRatio), index / (width * DivideRatio));
 }
 
 void UEllersMazeGenerator::CreateRightWall(FUCellArray& cells)

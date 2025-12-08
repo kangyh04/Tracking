@@ -10,6 +10,8 @@
 #include "AStarAlgorithm.h"
 #include "FUCellArray.h"
 #include "Cell.h"
+#include "EllersMazeGenerator.h"
+#include "MyGameModeBase.h"
 
 // Sets default values
 AMyCharacter::AMyCharacter()
@@ -100,20 +102,30 @@ bool AMyCharacter::DesideStartAndDest(const TArray<FUCellArray>& maze)
 		UCell* destCell = candidateCells[destIndex];
 		StartPos = startCell->Position();
 		DestPos = destCell->Position();
+		CurrentCell = startCell;
+		SetActorLocation(startCell->GetWorldCenterLocation());
 		bSuccess = true;
 	}
 	else
 	{
 		UE_LOG(LogTemp, Warning, TEXT("Not enough candidate cells to select start and dest positions."));
 	}
+
+
 	return bSuccess;
 }
 
-void AMyCharacter::TrainQLearning()
+void AMyCharacter::TrainQLearning(const TArray<FUCellArray>& map)
 {
 	auto result = QLearningAlgorithm->TrainStep();
 
 	NextPos = result.Position;
+	auto* mazeGenerator = GetWorld()->GetAuthGameMode<AMyGameModeBase>()->MazeGenerator;
+	int32 positionIndex = NextPos.X + NextPos.Y * UEllersMazeGenerator::CellDivideRatio() * mazeGenerator->MazeWidth;
+	auto cellIndex = UEllersMazeGenerator::IntIndexToCellIndex(positionIndex, mazeGenerator->MazeWidth);
+
+	CurrentCell = map[cellIndex.Y].InnerArray[cellIndex.X];
+	IsMoving = true;
 }
 
 // Called when the game starts or when spawned
@@ -127,20 +139,20 @@ void AMyCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	// TODO : make target location based on NextPos
-	auto targetLocation = FVector(0.0f, 0.0f, 0.0f);
+	auto targetLocation = CurrentCell->GetWorldCenterLocation();
 
 	FVector direction = (targetLocation - GetActorLocation()).GetSafeNormal();
 	float remainingDistance = FVector::Distance(GetActorLocation(), targetLocation);
 
-	while (remainingDistance > KINDA_SMALL_NUMBER)
+	if (remainingDistance > KINDA_SMALL_NUMBER)
 	{
 		float moveStep = GetCharacterMovement()->MaxWalkSpeed * DeltaTime;
 		if (moveStep > remainingDistance)
 		{
 			moveStep = remainingDistance;
+			IsMoving = false;
 		}
-		AddMovementInput(direction, moveStep / GetCharacterMovement()->MaxWalkSpeed);
+		AddMovementInput(direction, moveStep);
 		remainingDistance -= moveStep;
 	}
 }

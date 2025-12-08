@@ -31,6 +31,16 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "EllersMaze")
 	static TArray<int32> MazeToIntArray(const TArray<FUCellArray>& maze);
 
+	UFUNCTION(BlueprintCallable, Category = "EllersMaze")
+	static FIntPoint IntIndexToCellIndex(int32 index, int32 width);
+
+	// UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "EllersMaze", meta = (AllowPrivateAccess = "true"))
+	UFUNCTION(BlueprintCallable, Category = "EllersMaze")
+	static int32 CellDivideRatio()
+	{
+		return DivideRatio;
+	}
+
 private:
 	static void CreateRightWall(FUCellArray& cells);
 	static void CreateBottomWall(FUCellArray& cells);
@@ -39,4 +49,5 @@ private:
 private:
 	static const int MaxBias = 64;
 	static const int Bias = 32;
+	static const int32 DivideRatio = 3;
 };

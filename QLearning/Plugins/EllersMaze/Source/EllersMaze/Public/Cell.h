@@ -59,6 +59,13 @@ public:
 		newCell->group = group;
 		return newCell;
 	}
+
+	UFUNCTION(BlueprintCallable, Category = "EllersMaze|Cell")
+	FVector GetWorldCenterLocation()
+	{
+		return FVector(position.X * 1000.0f + 500.0f, position.Y * 1000.0f + 500.0f, 0.0f);
+	}
+
 	UFUNCTION(BlueprintCallable, Category = "EllersMaze|Cell")
 	TArray<FVector> GetVertices()
 	{

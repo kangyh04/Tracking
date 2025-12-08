@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "FUCellArray.h"
 #include "MyMazeGenerator.generated.h"
 
 UCLASS()
@@ -23,4 +24,13 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Maze", meta = (AllowPrivateAccess = "true"))
+	int32 MazeWidth;
+
+	UPROPERTY(EditAnyWhere, BlueprintReadWrite, Category = "Maze", meta = (AllowPrivateAccess = "true"))
+	int32 MazeHeight;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Maze", meta = (AllowPrivateAccess = "true"))
+	TArray<FUCellArray> Maze;
 };
