@@ -10,4 +10,5 @@ Eller'a Maze를 이용해서 미로를 생성후 AStar로 최적화 경로를 �
 ## 개발진행
 - [x] Eller's Maze
 - [x] AStar
-- [ ] Q-Learning
+- [X] Q-Learning
+- [ ] 동작확인 및 버그 수정
